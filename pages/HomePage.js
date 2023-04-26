@@ -13,16 +13,16 @@ function HomePage() {
         <>
             <Head>
                 <title>Home Page</title>
-                <link rel="stylesheet" href="/global.css" />
+                <link rel="stylesheet" type="text/css" href="/homepage.css" />
             </Head>
-            <div className={styles.container}>
-                <div className={styles.pageTitle}>
+            <div className="container">
+                <div className="page-title">
                     Crowdfunding Website using Blockchain
                 </div>
-                <div className={styles.cardContainer}>
-                    <div className={styles.abstractCard}>
-                        <div className={styles.cardTitle}>What have we achieved?</div>
-                        <div className={styles.cardText}>
+                <div className="card-container">
+                    <div className="abstract-card">
+                        <div className="card-title">What have we achieved?</div>
+                        <div className="card-text">
                             Through the use of an internet platform, crowdfunding has grown to
                             be a well-liked method for creative people to raise money for their
                             projects. However, there are a number of problems with the present
@@ -81,13 +81,14 @@ function HomePage() {
                         <span className="arrow">&#8594;</span>
                     </a>
                 </div> */}
-                <button className="floating-action-button"
-                    onClick={handleAllProjects}
-                    Campaigns>
-                </button>
+                <div className="button-container">
+                    <button className="next-button" onClick={handleAllProjects}>
+                        View all projects
+                    </button>
+                </div>
             </div>
         </>
     )
 }
 
-export default HomePage
+export default HomePage;

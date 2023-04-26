@@ -1,7 +1,7 @@
 const routes = require('next-routes')();
 
 // left- url
-//right path
+// right path
 routes
     .add('/allProjects', 'AllProjects')
     .add('/newProject', '/NewProject')
