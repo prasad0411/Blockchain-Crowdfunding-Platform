@@ -1,0 +1,161 @@
+/* rajnee home page */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.amount-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.amount h2 {
+    margin: 0;
+}
+
+.amount-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.amount-input label {
+    margin-right: 10px;
+}
+
+.amount-input input {
+    width: 150px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.amount-ethers {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 10px;
+}
+
+.ether-progress {
+    background-color: #3f51b5;
+}
+
+.target-completed {
+    background-color: green;
+}
+
+.green-progress {
+    background-color: green;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button[type='submit'] {
+    padding: 0.5rem;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: lightcoral;
+}

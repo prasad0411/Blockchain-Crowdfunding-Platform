@@ -1,0 +1,163 @@
+/* Importing Google Font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+/* Setting default styles for the body */
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: lightcoral;
+}
+
+/* [PRASAD CSS */
+
+/* Container that holds all the cards */
+.container {
+  margin-top: 40px;
+  padding: 0px;
+}
+
+/* Styling for each individual card */
+.card {
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  max-width: 300px;
+  height: auto;
+  display: inline-block;
+  margin-right: 10px;
+  width: calc(50% - 20px);
+  margin: 10px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card .card-text,
+.card .card-title {
+  text-align: center;
+}
+
+/* Styling for the card container */
+.card-container {
+  background-color: #00FF00;
+  transition: background-color 0.10s ease-in-out;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card body styles */
+.card .card-body {
+  padding: 30px;
+  align-self: center;
+  height: auto;
+}
+
+/* Card title styles */
+.card .card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  align-self: center;
+  text-align: center;
+}
+
+*/ .card-list {
+  text-align: left;
+}
+
+/* Card text styles */
+.card .card-text {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Styling for the filter container */
+.filter {
+  text-align: center;
+}
+
+/* Styling for the button group */
+.btn-group {
+  display: flex;
+  justify-content: center;
+}
+
+/* Styling for all buttons */
+.btn {
+  border-radius: 15px;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+}
+
+/* Styling for filter buttons */
+.filter button {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+/* Styling for the active filter button */
+.filter .active {
+  background-color: lightsteelblue;
+  border-color: black;
+}
+
+/* Media query for 2 columns on larger screens */
+@media (min-width: 768px) {
+  .card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+  }
+}
+
+/* Media query for 3 columns on even larger screens */
+@media (min-width: 992px) {
+  .card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
+
+/* Styling for the filter container heading */
+.filter-container h3 {
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
+
+/* floating action button */
+
+/* Style the floating action button */
+.floating-action-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 50%;
+  width: 69px;
+  height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.floating-action-button:hover {
+  background-color: black;
+}
+
+.fa-plus {
+  font-size: 2.5rem;
+}
