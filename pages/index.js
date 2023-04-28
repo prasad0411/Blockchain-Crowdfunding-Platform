@@ -1,141 +1,108 @@
-import { useState, Component } from 'react';
+import React, { Component } from 'react';
 import Head from "next/head";
-import { useRouter } from 'next/router';
+import { Router } from '../routes';
 import Web3 from "web3";
 
-
-// import web3 from "../ethereum/web3";
-// Define the list of projects
 class CampaignIndex extends Component {
-    // static async getInitialProps() {
+    state = {
+    }
+    community = [{
+        id: 4,
+        title: 'Community Project 2',
+        type: 'community',
+        description: 'This is the description of community project 2'
+    },
+    {
+        id: 5,
+        title: 'Private Project 3',
+        type: 'private',
+        description: 'This is the description of private project 3'
+    },
+    {
+        id: 6,
+        title: 'Private Project 4',
+        type: 'private',
+        description: 'This is the description of private project 4'
+    },
+    {
+        id: 7,
+        title: 'Community Project 3',
+        type: 'community',
+        description: 'This is the description of community project 3'
+    },];
+    private = [
+        {
+            id: 1,
+            title: 'Private Project 1',
+            type: 'private',
+            description: 'This is the description of private project 1'
+        },
+        {
+            id: 3,
+            title: 'Community Project 1',
+            type: 'community',
+            description: 'This is the description of community project 1'
+        },
+        {
+            id: 2,
+            title: 'Private Project 2',
+            type: 'private',
+            description: 'This is the description of private project 2'
+        },
 
-    //     // if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-    //     //     // We are in the browser and metamask is running.
-    //     //     window.ethereum.request({ method: "eth_requestAccounts" }).then(res => {
-    //     //         // Return the address of the wallet
-    //     //         console.log(res)
-    //     //     });
-    //     //     web3 = new Web3(window.ethereum);
+        // {
+        //     id: 8,
+        //     title: 'Community Project 4',
+        //     type: 'community',
+        //     description: 'This is the description of community project 4'
+        // },
+        // {
+        //     id: 9,
+        //     title: 'Private Project 5',
+        //     type: 'private',
+        //     description: 'This is the description of private project 5'
+        // },
+        // {
+        //     id: 10,
+        //     title: 'Community Project 5',
+        //     type: 'community',
+        //     description: 'This is the description of community project 5'
+        // }
+    ];
 
-    //     // }
-
-    //     return { address };
-
-    // }
     constructor(props) {
         super(props)
         this.state = {
             filter: 'all',
             heading: 'Crowd Funding Website',
             modalOpen: false,
-
-            filteredProjects: []
-
+            filteredProjects: [],
         };
 
     }
 
+    handleFilterChange(filter) {
 
+        switch (filter) {
+            case 'all':
+                this.setState({ filter: 'all', heading: 'All Projects', filteredProjects: this.private + this.community });
+                break;
+            case 'private':
+                this.setState({ filter: 'private', heading: 'Private Projects', filteredProjects: this.private });
+                break;
+            case 'community':
+                this.setState({ filter: 'community', heading: 'Community Projects', filteredProjects: this.community });
 
-
-    // Filter the projects based on the selected filter
-
-    // const handleCreateNewProject = () => {
-    //     // window.location.replace('/newProject');
-    //     // <Link href="/new_project"></Link>
-    //     <Link to="/new_project">New Project</Link>
-    // };
-
-
-    handleFilterChange = (filter) => {
-        setFilter(filter);
-        if (filter === 'all') {
-            this.state.heading = 'All Projects';
-        } if (filter === 'private') {
-            this.state.heading = 'Private Projects';
-        } else if (filter === 'community') {
-            this.state.heading = 'Community Projects';
+                break;
+            default:
+            // code block
         }
-    };
 
 
-    handleCreateNewProject = () => {
-        useRouter().push('/newProject');
+
     };
+
     render() {
-
-
-
-        const projects = [
-            {
-                id: 1,
-                title: 'Private Project 1',
-                type: 'private',
-                description: 'This is the description of private project 1'
-            },
-            {
-                id: 3,
-                title: 'Community Project 1',
-                type: 'community',
-                description: 'This is the description of community project 1'
-            },
-            {
-                id: 2,
-                title: 'Private Project 2',
-                type: 'private',
-                description: 'This is the description of private project 2'
-            },
-            {
-                id: 4,
-                title: 'Community Project 2',
-                type: 'community',
-                description: 'This is the description of community project 2'
-            },
-            {
-                id: 5,
-                title: 'Private Project 3',
-                type: 'private',
-                description: 'This is the description of private project 3'
-            },
-            {
-                id: 6,
-                title: 'Private Project 4',
-                type: 'private',
-                description: 'This is the description of private project 4'
-            },
-            {
-                id: 7,
-                title: 'Community Project 3',
-                type: 'community',
-                description: 'This is the description of community project 3'
-            },
-            // {
-            //     id: 8,
-            //     title: 'Community Project 4',
-            //     type: 'community',
-            //     description: 'This is the description of community project 4'
-            // },
-            // {
-            //     id: 9,
-            //     title: 'Private Project 5',
-            //     type: 'private',
-            //     description: 'This is the description of private project 5'
-            // },
-            // {
-            //     id: 10,
-            //     title: 'Community Project 5',
-            //     type: 'community',
-            //     description: 'This is the description of community project 5'
-            // }
-        ];
-
-        // const accounts = await web3.eth.getAccounts();
-        // console.log(accounts[0]);
-        // Define state variables for the filter and heading
-
-        this.state.filteredProjects = this.state.filter === 'all' ?
-            projects : projects.filter((project) => project.type === filter);
-
 
         return (
             <>
@@ -183,21 +150,21 @@ class CampaignIndex extends Component {
                             <button
                                 className={`btn btn-sm btn-primary rounded-pill mr-2
                                 ${this.state.filter === 'all' ? 'active' : ''}`}
-                                onClick={() => handleFilterChange('all')}
+                                onClick={() => { this.handleFilterChange('all'); }}
                             >
                                 All Projects
                             </button>
                             <button
                                 className={`btn btn-sm btn-primary rounded-pill mr-2
                                 ${this.state.filter === 'private' ? 'active' : ''}`}
-                                onClick={() => handleFilterChange('private')}
+                                onClick={() => { this.handleFilterChange('private'); }}
                             >
                                 Private Projects
                             </button>
                             <button
                                 className={`btn btn-sm btn-primary rounded-pill
                                 ${this.state.filter === 'community' ? 'active' : ''}`}
-                                onClick={() => handleFilterChange('community')}
+                                onClick={() => { this.handleFilterChange('community'); }}
                             >
                                 Community Projects
                             </button>
@@ -220,7 +187,9 @@ class CampaignIndex extends Component {
                         </div>
                     </div>
                     <button className="floating-action-button"
-                        // onClick={handleCreateNewProject}
+                        onClick={() => {
+                            Router.pushRoute('/newProject')
+                        }}
                         title='Create a new project'>
                         <span>Project ? </span>
                         <i className="fa fa-plus"></i>

@@ -2,10 +2,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Head from "next/head";
-import Payments from "../pages/Payments";
+import Payments from "./Payments";
 import React from 'react';
 
 function ProjectDetails() {
+
+
     const [images, setImages] = React.useState([
         "https://picsum.photos/id/1018/1200/400",
         "https://picsum.photos/id/1015/1200/400",
