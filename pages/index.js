@@ -1,118 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Head from "next/head";
 import { Router } from '../routes';
 import Web3 from "web3";
 
-class CampaignIndex extends Component {
-    state = {
-    }
-    community = [{
-        id: 4,
-        title: 'Community Project 2',
-        type: 'community',
-        description: 'This is the description of community project 2'
-    },
-    {
-        id: 5,
-        title: 'Private Project 3',
-        type: 'private',
-        description: 'This is the description of private project 3'
-    },
-    {
-        id: 6,
-        title: 'Private Project 4',
-        type: 'private',
-        description: 'This is the description of private project 4'
-    },
-    {
-        id: 7,
-        title: 'Community Project 3',
-        type: 'community',
-        description: 'This is the description of community project 3'
-    },];
-    private = [
-        {
-            id: 1,
-            title: 'Private Project 1',
-            type: 'private',
-            description: 'This is the description of private project 1'
-        },
-        {
-            id: 3,
-            title: 'Community Project 1',
-            type: 'community',
-            description: 'This is the description of community project 1'
-        },
-        {
-            id: 2,
-            title: 'Private Project 2',
-            type: 'private',
-            description: 'This is the description of private project 2'
-        },
-
-        // {
-        //     id: 8,
-        //     title: 'Community Project 4',
-        //     type: 'community',
-        //     description: 'This is the description of community project 4'
-        // },
-        // {
-        //     id: 9,
-        //     title: 'Private Project 5',
-        //     type: 'private',
-        //     description: 'This is the description of private project 5'
-        // },
-        // {
-        //     id: 10,
-        //     title: 'Community Project 5',
-        //     type: 'community',
-        //     description: 'This is the description of community project 5'
-        // }
-    ];
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            filter: 'all',
-            heading: 'Crowd Funding Website',
-            modalOpen: false,
-            filteredProjects: [],
-        };
-
-    }
-
-    handleFilterChange(filter) {
-
-        switch (filter) {
-            case 'all':
-                this.setState({ filter: 'all', heading: 'All Projects', filteredProjects: this.private + this.community });
-                break;
-            case 'private':
-                this.setState({ filter: 'private', heading: 'Private Projects', filteredProjects: this.private });
-                break;
-            case 'community':
-                this.setState({ filter: 'community', heading: 'Community Projects', filteredProjects: this.community });
-
-                break;
-            default:
-            // code block
-        }
-
-
-
-    };
+class HomePage extends Component {
 
     render() {
-
         return (
             <>
                 <Head>
-                    <title>All Projects</title>
-                    <link rel="stylesheet" href="/allProjects.css" />
+                    <title>Home Page</title>
+                    <link rel="stylesheet" type="text/css" href="/homepage.css" />
                 </Head>
                 <button
                     className={`btn btn-sm btn-primary rounded-pill mr-2
-                                Connect`}
+                    connect-button`}
                     onClick={async () => {
                         let web3;
                         const address = [];
@@ -136,70 +38,77 @@ class CampaignIndex extends Component {
 
                     }}
                 >
-                    Connect
+                    Login
                 </button>
-
-                <div className="container-fluid h-100">
-                    <div className="row profile d-flex justify-content-end align-items-center">
-
+                <div className="container">
+                    <div className="page-title">
+                        Crowdfunding Website using Blockchain
                     </div>
-                    <div className="row filter d-flex justify-content-center align-items-center mb-4">
-                        <div className="col-md-12">
-                            <h1 className="text-center mb-4 font-weight-bold">Crowd Funding Website</h1>
-
-                            <button
-                                className={`btn btn-sm btn-primary rounded-pill mr-2
-                                ${this.state.filter === 'all' ? 'active' : ''}`}
-                                onClick={() => { this.handleFilterChange('all'); }}
-                            >
-                                All Projects
-                            </button>
-                            <button
-                                className={`btn btn-sm btn-primary rounded-pill mr-2
-                                ${this.state.filter === 'private' ? 'active' : ''}`}
-                                onClick={() => { this.handleFilterChange('private'); }}
-                            >
-                                Private Projects
-                            </button>
-                            <button
-                                className={`btn btn-sm btn-primary rounded-pill
-                                ${this.state.filter === 'community' ? 'active' : ''}`}
-                                onClick={() => { this.handleFilterChange('community'); }}
-                            >
-                                Community Projects
-                            </button>
-
-                        </div>
-                    </div>
-                    <div className="row h-100">
-                        <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
-                            <h2 className="title text-center">{this.state.filter === 'private' ? 'Private Projects' : 'Community Projects'}</h2>
-                            <div className="card-list d-flex flex-wrap">
-                                {this.state.filteredProjects.map((project) => (
-                                    <div className="card mb-4 mr-4">
-                                        <div className="card-body">
-                                            <h5 className="card-title">{project.title}</h5>
-                                            <p className="card-text">{project.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                    <div className="card-container">
+                        <div className="abstract-card">
+                            <div className="card-title">What have we achieved?</div>
+                            <div className="card-text">
+                                Through the use of an internet platform, crowdfunding has grown to
+                                {/* be a well-liked method for creative people to raise money for their
+                            projects. However, there are a number of problems with the present
+                            crowdfunding model, including the use of third-party middlemen who
+                            cannot guarantee the investor's money and a lack of investor control
+                            over the use of their money. The secure, dependable, and
+                            decentralised network of blockchain technology, on the other hand,
+                            has grown to be quite popular across a wide range of businesses due
+                            to its efficiency when compared to more conventional approaches.
+                            Yet, because of their complicated and less secure networks, older
+                            approaches have a lot of problems and difficulties. These issues can
+                            be solved by incorporating blockchain technology, which offers
+                            advantages like improved security, transparency, efficiency, and
+                            reduced fraud risk. We suggest a new crowdfunding platform built on
+                            blockchain technology that offers a decentralised and safe method of
+                            crowdfunding to address these problems. Our platform's main goal is
+                            to give investors the ability to successfully contribute to any
+                            project by enabling them to create smart contracts that give them
+                            control over the invested funds. As a result, project developers are
+                            prevented from using funding in a manner with which investors
+                            disagreed. Our work emphasises the advantages of integrating
+                            blockchain in different industries while highlighting the contrasts
+                            between conventional and blockchain-based crowdfunding platforms. We
+                            also go through the difficulties traditional industries face and how
+                            blockchain-based platforms might help solve these issues. Our goal
+                            is to raise awareness of the advantages of blockchain technology in
+                            various industries and to promote its adoption to increase security,
+                            efficiency, and transparency. */}
                             </div>
                         </div>
                     </div>
-                    <button className="floating-action-button"
-                        onClick={() => {
-                            Router.pushRoute('/newProject')
-                        }}
-                        title='Create a new project'>
-                        <span>Project ? </span>
-                        <i className="fa fa-plus"></i>
-                    </button>
-                    {this.state.modalOpen && <ProjectModal setModalOpen={setModalOpen} />}
+                    <div className="card-container2">
+                        <div className="team-card">
+                            <div className="card-title">Team Members</div>
+                            <div className="card-text">
+                                Aditya Wakase 1032201574
+                                <br />
+                                Prasad Kanade 1032200653
+                                <br />
+                                Hrishikesh Pujari 1032192012
+                                <br />
+                                Rajnee Shenkar 1032192072
+                            </div>
+                        </div>
+                        <div className="eth-card">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/2048px-Ethereum-icon-purple.svg.png"
+                                alt="Ethereum Logo"
+                                className="eth-logo"
+                            />
+                        </div>
+                    </div>
+                    <div className="button-container">
+                        <button className="next-button" onClick={() => { Router.pushRoute('/allProjects') }}>
+                            View all projects<span className="arrow">&#8594;</span>
+                        </button>
+                    </div>
+
                 </div>
             </>
-        );
+        )
     }
-
-
-}
-export default CampaignIndex;
+};
+export default HomePage;

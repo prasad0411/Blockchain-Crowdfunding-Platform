@@ -3,6 +3,7 @@ const routes = require('next-routes')();
 // left- url
 //right path
 routes
+    .add('/homePage', 'HomePage')
     .add('/allProjects', 'AllProjects')
     .add('/newProject', '/NewProject')
     .add('/community/:address/details', 'community_project_details')
