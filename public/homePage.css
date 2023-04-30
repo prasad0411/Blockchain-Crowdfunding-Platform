@@ -109,10 +109,6 @@ body {
     padding-left: 5px;
 }
 
-.connect-container {
-    margin-bottom: 2rem;
-}
-
 .connect-button {
     padding: 0.5rem;
     background-color: #2196f3;
@@ -126,4 +122,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 999;
+}
+
+.connect-container {
+    padding-bottom: 5px;
 }

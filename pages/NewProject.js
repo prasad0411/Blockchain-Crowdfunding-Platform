@@ -1,117 +1,104 @@
-import { useState } from "react";
+import { Component, useState } from "react";
 import Head from "next/head";
-import { useRouter } from 'next/router';
+import { Router } from '../routes';
 
 
-export default function CreateNewProject() {
-    const [image, setImage] = useState(null);
-    const [text, setText] = useState("");
-    const [description, setDescription] = useState("");
-    const [maxEth, setMaxEth] = useState("");
-    const [minEth, setMinEth] = useState("");
+class CreateNewProject extends Component {
 
-    const handleImageUpload = (event) => {
-        setImage(URL.createObjectURL(event.target.files[0]));
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: "",
+            description: "",
+            maxEth: "",
+            minEth: ""
+        };
+        this.handleTextChange = this.handleTextChange.bind(this);
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+        this.handleMaxEth = this.handleMaxEth.bind(this);
+        this.handleMinEth = this.handleMinEth.bind(this);
+    }
 
-    const handleTextChange = (event) => {
-        setText(event.target.value);
-    };
+    handleTextChange(event) {
+        this.setState({ text: event.target.value });
+    }
 
-    const handleDescriptionChange = (event) => {
-        setDescription(event.target.value);
-    };
+    handleDescriptionChange(event) {
+        this.setState({ description: event.target.value });
+    }
 
-    const handleMaxEth = (event) => {
-        setMaxEth(event.target.value);
-    };
+    handleMaxEth(event) {
+        this.setState({ maxEth: event.target.value });
+    }
 
-    const handleMinEth = (event) => {
-        setMinEth(event.target.value);
-    };
+    handleMinEth(event) {
+        this.setState({ minEth: event.target.value });
+    }
 
-    const router = useRouter();
+    render() {
+        return (
+            <>
+                <Head>
+                    <title>New project</title>
+                    <link rel="stylesheet" href="/newProject.css" />
+                </Head>
 
-    const handlePayments = () => {
-        router.push('/payments');
-    };
-
-    return (
-        <>
-            <Head>
-                <title>New project</title>
-                <link rel="stylesheet" href="/newProject.css" />
-            </Head>
-
-            <div className="App">
-                <header>
-                    <h1>Create a new Project</h1>
-                </header>
-                {/* <div className="add-image">
-                    <p>Add Image</p>
-                    <div className="image-card">
-                        {image ? (
-                            <img src={image} alt="uploaded" />
-                        ) : (
-                            <label htmlFor="file-upload">
-                                <input
-                                    type="file"
-                                    id="file-upload"
-                                    accept="image/*"
-                                    onChange={handleImageUpload}
-                                />
-                            </label>
-                        )}
+                <div className="App">
+                    <header>
+                        <h1>Create a new Project</h1>
+                    </header>
+                    <div className="add-title">
+                        <p>Title</p>
+                        <div className="text-card">
+                            <textarea
+                                className="textarea-1"
+                                placeholder="Enter title here"
+                                value={this.state.text}
+                                onChange={this.handleTextChange}
+                            ></textarea>
+                        </div>
                     </div>
-                </div> */}
-                <div className="add-title">
-                    <p>Title</p>
-                    <div className="text-card">
-                        <textarea
-                            className="textarea-1"
-                            placeholder="Enter title here"
-                            value={text}
-                            onChange={handleTextChange}
-                        ></textarea>
+                    <div className="add-description">
+                        <p>Description</p>
+                        <div className="description-card">
+                            <textarea
+                                className="textarea-2"
+                                placeholder="Enter description here"
+                                value={this.state.description}
+                                onChange={this.handleDescriptionChange}
+                            ></textarea>
+                        </div>
                     </div>
+                    <div className="add-MaxEth">
+                        <p>Maximum Eth to be collected</p>
+                        <div className="MaxEth-card">
+                            <textarea
+                                className="textarea-3"
+                                placeholder="Max Eth"
+                                value={this.state.maxEth}
+                                onChange={this.handleMaxEth}
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div className="add-MinEth">
+                        <p>Minimum Eth to be collected</p>
+                        <div className="MinEth-card">
+                            <textarea
+                                className="textarea-4"
+                                placeholder="Min Eth"
+                                value={this.state.minEth}
+                                onChange={this.handleMinEth}
+                            ></textarea>
+                        </div>
+                    </div>
+                    <button className="submit"
+                        onClick={() => { Router.pushRoute('/payments') }}>
+                        Submit
+                    </button>
                 </div>
-                <div className="add-description">
-                    <p>Description</p>
-                    <div className="description-card">
-                        <textarea
-                            className="textarea-2"
-                            placeholder="Enter description here"
-                            value={description}
-                            onChange={handleDescriptionChange}
-                        ></textarea>
-                    </div>
-                </div>
-                <div className="add-MaxEth">
-                    <p>Maximum Eth to be collected</p>
-                    <div className="MaxEth-card">
-                        <textarea
-                            className="textarea-3"
-                            placeholder="Max Eth"
-                            value={maxEth}
-                            onChange={handleMaxEth}
-                        ></textarea>
-                    </div>
-                </div>
-                <div className="add-MinEth">
-                    <p>Minimum Eth to be collected</p>
-                    <div className="MinEth-card">
-                        <textarea
-                            className="textarea-4"
-                            placeholder="Min Eth"
-                            value={minEth}
-                            onChange={handleMinEth}
-                        ></textarea>
-                    </div>
-                </div>
-                <button className="submit" onClick={handlePayments}>
-                    Submit
-                </button>
-            </div>
-        </>
-    );
-}
+            </>
+        );
+    }
+};
+
+export default CreateNewProject;

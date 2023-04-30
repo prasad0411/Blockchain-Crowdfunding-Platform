@@ -4,41 +4,6 @@ body {
     background-color: lightcoral;
 }
 
-.image-card {
-    width: 90%;
-    height: 180px;
-    /* decreased height from 300px to 280px */
-    margin-left: auto;
-    margin-right: auto;
-    /* border: 1px solid black; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-}
-
-
-*/ .image-card img {
-    max-width: 100%;
-    max-height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.add-image {
-    margin-top: 50px;
-}
-
-.add-image p {
-    text-align: left;
-    margin-left: 20px;
-    font-size: 24px;
-    /* increase font size to 24px */
-    font-weight: bold;
-    /* make text bold */
-}
-
 .App {
     text-align: center;
 }
@@ -91,10 +56,10 @@ body {
 .textarea-1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 90%;
-    height: 100px;
+    height: 20px;
     margin: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border: 2px solid white;
     border-radius: 5px;
     padding: 10px;
@@ -117,10 +82,10 @@ body {
 .textarea-2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 90%;
-    height: 200px;
+    height: 70px;
     margin: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border: 2px solid white;
     border-radius: 5px;
     padding: 10px;
@@ -141,10 +106,10 @@ body {
 .textarea-3 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 30%;
-    height: 50px;
+    height: 20px;
     margin: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border: 2px solid white;
     border-radius: 5px;
     padding: 10px;
@@ -165,10 +130,10 @@ body {
 .textarea-4 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 30%;
-    height: 50px;
+    height: 20px;
     margin: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border: 2px solid white;
     border-radius: 5px;
     padding: 10px;
@@ -177,11 +142,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
-button[type='submit'] {
+.submit {
     padding: 0.5rem;
     background-color: #2196f3;
     color: #fff;
     border: none;
+    margin-top: 10px;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;

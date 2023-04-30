@@ -9,19 +9,11 @@ class CommunityProjectDetails extends Component {
     static async getInitialProps(props) {
         console.log(props.query.address)
 
-
         return {
             details: props.query.address
         };
 
     }
-
-
-    // const [images, setImages] = React.useState([
-    //     "https://picsum.photos/id/1018/1200/400",
-    //     "https://picsum.photos/id/1015/1200/400",
-    //     "https://picsum.photos/id/1019/1200/400",
-    // ]);
 
     settings = {
         dots: true,

@@ -4,6 +4,14 @@ import { Router } from '../routes';
 import Web3 from "web3";
 
 class AllProjects extends Component {
+    static async getInitialProps(props) {
+        console.log(props.query.address)
+
+        return {
+            details: props.query.address
+        };
+
+    }
     state = {
     }
 
