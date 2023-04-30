@@ -92,7 +92,9 @@ class CreateNewProject extends Component {
                         </div>
                     </div>
                     <button className="submit"
-                        onClick={() => { Router.pushRoute('/payments') }}>
+                        onClick={() => {
+                            Router.pushRoute('/payments? investmentAmount=10')
+                        }}>
                         Submit
                     </button>
                 </div>

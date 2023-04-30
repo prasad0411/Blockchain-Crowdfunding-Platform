@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Head from "next/head";
 import { Router } from '../routes';
-import Web3 from "web3";
 
 class AllProjects extends Component {
     static async getInitialProps(props) {
@@ -22,23 +21,33 @@ class AllProjects extends Component {
         description: 'This is the description of community project 2'
     },
     {
-        id: 5,
-        title: 'Private Project 3',
-        type: 'private',
-        description: 'This is the description of private project 3'
+        id: 3,
+        title: 'Community Project 1',
+        type: 'community',
+        description: 'This is the description of community project 1'
     },
-    {
-        id: 6,
-        title: 'Private Project 4',
-        type: 'private',
-        description: 'This is the description of private project 4'
-    },
+
+    // {
+    //     id: 8,
+    //     title: 'Community Project 4',
+    //     type: 'community',
+    //     description: 'This is the description of community project 4'
+    // },
+
+    // {
+    //     id: 10,
+    //     title: 'Community Project 5',
+    //     type: 'community',
+    //     description: 'This is the description of community project 5'
+    // }
+
     {
         id: 7,
         title: 'Community Project 3',
         type: 'community',
         description: 'This is the description of community project 3'
-    },];
+    },
+    ];
     private = [
         {
             id: 1,
@@ -47,11 +56,24 @@ class AllProjects extends Component {
             description: 'This is the description of private project 1'
         },
         {
-            id: 3,
-            title: 'Community Project 1',
-            type: 'community',
-            description: 'This is the description of community project 1'
+            id: 5,
+            title: 'Private Project 3',
+            type: 'private',
+            description: 'This is the description of private project 3'
         },
+        {
+            id: 6,
+            title: 'Private Project 4',
+            type: 'private',
+            description: 'This is the description of private project 4'
+        },
+        // {
+        //     id: 9,
+        //     title: 'Private Project 5',
+        //     type: 'private',
+        //     description: 'This is the description of private project 5'
+        // },
+
         {
             id: 2,
             title: 'Private Project 2',
@@ -59,24 +81,7 @@ class AllProjects extends Component {
             description: 'This is the description of private project 2'
         },
 
-        // {
-        //     id: 8,
-        //     title: 'Community Project 4',
-        //     type: 'community',
-        //     description: 'This is the description of community project 4'
-        // },
-        // {
-        //     id: 9,
-        //     title: 'Private Project 5',
-        //     type: 'private',
-        //     description: 'This is the description of private project 5'
-        // },
-        // {
-        //     id: 10,
-        //     title: 'Community Project 5',
-        //     type: 'community',
-        //     description: 'This is the description of community project 5'
-        // }
+
     ];
 
     constructor(props) {
@@ -95,20 +100,17 @@ class AllProjects extends Component {
         switch (filter) {
             case 'all':
                 this.setState({
-                    filter: 'all', heading: 'All Projects',
-                    filteredProjects: this.private + this.community
+                    filter: 'all', heading: 'All Projects', filteredProjects: this.private + this.community
                 });
                 break;
             case 'private':
                 this.setState({
-                    filter: 'private', heading: 'Private Projects',
-                    filteredProjects: this.private
+                    filter: 'private', heading: 'Private Projects', filteredProjects: this.private
                 });
                 break;
             case 'community':
                 this.setState({
-                    filter: 'community', heading: 'Community Projects',
-                    filteredProjects: this.community
+                    filter: 'community', heading: 'Community Projects', filteredProjects: this.community
                 });
                 break;
             default:
@@ -164,14 +166,16 @@ class AllProjects extends Component {
                                     'Private Projects' :
                                     'Community Projects'}</h2>
                             <div className="card-list d-flex flex-wrap">
-                                {this.state.filteredProjects.map((project) => (
-                                    <div className="card mb-4 mr-4">
-                                        <div className="card-body">
-                                            <h5 className="card-title">{project.title}</h5>
-                                            <p className="card-text">{project.description}</p>
+                                {Array.isArray(this.state.filteredProjects) &&
+                                    this.state.filteredProjects.map((project) => (
+                                        <div className="card mb-4 mr-4">
+                                            <div className="card-body">
+                                                <h5 className="card-title">{project.title}</h5>
+                                                <p className="card-text">{project.description}</p>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
                             </div>
                         </div>
                     </div>

@@ -26,34 +26,36 @@ class CommunityProjectDetails extends Component {
     };
 
     render() {
-        return (<>
-            <Head>
-                <title>Project Details</title>
-                <link rel="stylesheet" href="/global.css" />
-            </Head>
+        return (
+            <>
+                <Head>
+                    <title>Project Details</title>
+                    <link rel="stylesheet" href="/global.css" />
+                </Head>
 
-            {/* <div className="App">
-                <Slider {...settings}>
-                    {images.map((image) => (
-                        <div key={image}>
-                            <img src={image} alt="slider-img" />
-                        </div>
-                    ))}
-                </Slider>
-                <h1 className="title">This is Title</h1>
-                <div className="card">
-                    <h2 className="description">Description</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet. Hic libero perferendis et rerum dolorum
-                        sit provident voluptatem et eveniet debitis qui inventore laboriosam
-                        ut culpa recusandae. Sed distinctio optio rem voluptatibus provident
-                        vel nobis placeat!
-                    </p>
+                <div className="App">
+                    <Slider {...settings}>
+                        {images.map((image) => (
+                            <div key={image}>
+                                <img src={image} alt="slider-img" />
+                            </div>
+                        ))}
+                    </Slider>
+                    <h1 className="title">This is Title</h1>
+                    <div className="card">
+                        <h2 className="description">Description</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet. Hic libero perferendis et rerum dolorum
+                            sit provident voluptatem et eveniet debitis qui inventore laboriosam
+                            ut culpa recusandae. Sed distinctio optio rem voluptatibus provident
+                            vel nobis placeat!
+                        </p>
+                    </div>
+                    <Payments />
                 </div>
-                <Payments /> */}
-            {/* </div> */}
-        </>);
+            </>
+        );
     }
-}
+};
 
 export default CommunityProjectDetails;
