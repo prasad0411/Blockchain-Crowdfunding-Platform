@@ -55,6 +55,7 @@ body {
 .amount-input input {
     width: 150px;
     height: 30px;
+    color: black;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
@@ -112,7 +113,7 @@ input {
 button[type='submit'] {
     padding: 0.5rem;
     background-color: #2196f3;
-    color: #fff;
+    /* color: #fff; */
     border: none;
     border-radius: 4px;
     font-size: 1rem;

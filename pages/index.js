@@ -1,124 +1,118 @@
-import { Component } from "react";
+import React, { Component } from 'react'
 import Head from "next/head";
 import { Router } from '../routes';
+import Web3 from "web3";
 
-class Payments extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalOpen: false,
-      amount: "",
-      percentage: 0,
-      investmentAmount: 100, // add investmentAmount to the component state
-    };
-  }
+class HomePage extends Component {
 
-  closeModal = () => {
-    this.setState({ isModalOpen: false });
-    setTimeout(() => {
-      Router.pushRoute("/allProjects");
-    }, 1500); // wait for 5 seconds before redirecting
-  };
+    render() {
+        return (
+            <>
+                <Head>
+                    <title>Home Page</title>
+                    <link rel="stylesheet" type="text/css" href="/homepage.css" />
+                </Head>
+                <div className="connect-container">
+                    <button
+                        className={`btn btn-sm btn-primary rounded-pill mr-2
+                    connect-button`}
+                        onClick={async () => {
+                            let web3;
+                            const address = [];
+                            if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+                                window.ethereum.request({ method: "eth_requestAccounts" }).then(res => {
+                                    // Return the address of the wallet
+                                    console.log(res)
+                                });
+                                web3 = new Web3(window.ethereum);
+                                const accounts = await web3.eth.getAccounts();
+                                console.log(accounts);
+                            } else {
+                                // We are on the server *OR* the user is not running metamask
+                                const provider = new Web3.providers.HttpProvider(
+                                    "https://goerli.infura.io/v3/d881b5869ec3440f8573212195db4e55"
+                                );
+                                web3 = new Web3(provider);
+                                const accounts = await web3.eth.getAccounts();
+                                console.log(accounts);
+                            }
 
-  handleAmountChange = (event) => {
-    this.setState({ amount: event.target.value });
-  };
+                        }}
+                    >
+                        Login<span className="arrow">&#8594;</span>
+                    </button >
+                </div>
+                <div className="container">
+                    <div className="page-title">
+                        Crowdfunding Website using Blockchain
+                    </div>
+                    <div className="card-container">
+                        <div className="abstract-card">
+                            <div className="card-title">What have we achieved?</div>
+                            <div className="card-text">
+                                Through the use of an internet platform, crowdfunding has grown to
+                                be a well-liked method for creative people to raise money for their
+                                projects. However, there are a number of problems with the present
+                                crowdfunding model, including the use of third-party middlemen who
+                                cannot guarantee the investor's money and a lack of investor control
+                                over the use of their money.
+                                <p></p>The secure, dependable, and
+                                decentralised network of blockchain technology, on the other hand,
+                                has grown to be quite popular across a wide range of businesses due
+                                to its efficiency when compared to more conventional approaches.
+                                Yet, because of their complicated and less secure networks, older
+                                approaches have a lot of problems and difficulties. These issues can
+                                be solved by incorporating blockchain technology, which offers
+                                advantages like improved security, transparency, efficiency, and
+                                reduced fraud risk. <p></p>We suggest a new crowdfunding platform built on
+                                blockchain technology that offers a decentralised and safe method of
+                                crowdfunding to address these problems. Our platform's main goal is
+                                to give investors the ability to successfully contribute to any
+                                project by enabling them to create smart contracts that give them
+                                control over the invested funds. As a result, project developers are
+                                prevented from using funding in a manner with which investors
+                                disagreed.<p></p> Our work emphasises the advantages of integrating
+                                blockchain in different industries while highlighting the contrasts
+                                between conventional and blockchain-based crowdfunding platforms. We
+                                also go through the difficulties traditional industries face and how
+                                blockchain-based platforms might help solve these issues. Our goal
+                                is to raise awareness of the advantages of blockchain technology in
+                                various industries and to promote its adoption to increase security,
+                                efficiency, and transparency.
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card-container2">
+                        <div className="team-card">
+                            <div className="card-title">Team Members</div>
+                            <div className="card-text">
+                                Aditya Wakase 1032201574
+                                <br />
+                                Prasad Kanade 1032200653
+                                <br />
+                                Hrishikesh Pujari 1032192012
+                                <br />
+                                Rajnee Shenkar 1032192072
+                            </div>
+                        </div>
+                        <div className="eth-card">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/2048px-Ethereum-icon-purple.svg.png"
+                                alt="Ethereum Logo"
+                                className="eth-logo"
+                            />
+                        </div>
+                    </div>
+                    <div className="button-container">
+                        <button className="next-button"
+                            onClick={() => { Router.pushRoute('/allProjects') }}>
+                            View all projects<span className="arrow">&#8594;</span>
+                        </button>
+                    </div>
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const minAmount = 1; // 0.1 ethers
-    const { amount, investmentAmount } = this.state; // retrieve investmentAmount from state
-    if (amount >= minAmount && amount <= investmentAmount) {
-      console.log(`Submitted amount: ${amount} ethers`);
-      this.setState({ isModalOpen: true }); // Open the modal
-    } else if (amount < minAmount) {
-      alert(`Amount must be at least ${minAmount} ethers`);
-    } else {
-      alert(`Amount cannot exceed ${investmentAmount} ethers`);
+                </div>
+            </>
+        )
     }
-  };
-
-  calculateProgress = (amount) => {
-    const maxAmount = this.state.investmentAmount;
-    const etherAmount = Number(amount);
-    const etherRatio = (etherAmount / maxAmount) * 100;
-    return {
-      ether: etherRatio.toFixed(2) + "%",
-      percentage: etherRatio.toFixed(2),
-    };
-  };
-
-  componentDidMount() {
-    const { amount } = this.state;
-    const percentage = this.calculateProgress(amount).percentage;
-    this.setState({ percentage });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { amount } = this.state;
-    if (prevState.amount !== amount) {
-      const percentage = this.calculateProgress(amount).percentage;
-      this.setState({ percentage });
-    }
-  }
-
-  componentDidMount() {
-    const { query } = Router.router;
-    const { investmentAmount } = query;
-    if (investmentAmount) {
-      this.setState({ investmentAmount: parseFloat(investmentAmount) });
-    }
-  }
-
-
-  render() {
-    const { isModalOpen, amount, percentage, investmentAmount } = this.state; // retrieve investmentAmount from state
-    const progress = this.calculateProgress(amount);
-
-    return (
-      <>
-        <Head>
-          <title>Payments</title>
-          <link rel="stylesheet" href="/payments.css" />
-        </Head>
-        <div className="amount-box">
-          <h2>Investment Amount (Ethers only): {investmentAmount || "Not set"}</h2><div className="progress-bar">
-            <div
-              className={`progress ether-progress ${amount >= investmentAmount ? "green-progress" : ""}`}
-              style={{ width: progress.ether }}
-            ></div>
-            <div className="progress-text">{percentage}%</div>
-          </div>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="amount">Enter Amount:</label>
-            <input
-              type="number"
-              id="amount"
-              name="amount"
-              value={amount}
-              onChange={this.handleAmountChange}
-              min="1" // set minimum value to 1
-              max={this.props.investmentAmount} // set maximum value to investmentAmount prop
-              step="0.1" // set step to 0.1
-            />
-            <button type="submit">Submit</button>
-          </form>
-          {isModalOpen && (
-            <div className="modal">
-              <div className="modal-content">
-                <span className="close" onClick={this.closeModal}>
-                  ×
-                </span>
-                <h2>Shareholding Rights</h2>
-                <p>You are now a shareholder of this company.</p>
-                <p>Shares = xyz</p>
-              </div>
-            </div>
-          )}
-        </div>
-      </>
-    );
-  }
 };
-
-export default Payments;
+export default HomePage;
