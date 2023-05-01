@@ -1,5 +1,3 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Head from "next/head";
 import Payments from "./Payments";
 import React, { Component } from "react";
@@ -27,7 +25,7 @@ class CommunityProjectDetails extends Component {
       <>
         <Head>
           <title>Project Details</title>
-          <link rel="stylesheet" href="/community_project_details.css" />
+          <link rel="stylesheet" href="/communityProjectDetails.css" />
         </Head>
         <div className="App">
           <h1 className="title">This is Title</h1>

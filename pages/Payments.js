@@ -9,7 +9,7 @@ class Payments extends Component {
             isModalOpen: false,
             amount: "",
             percentage: 0,
-            investmentAmount: null, // add investmentAmount to the component state
+            investmentAmount: 100, // add investmentAmount to the component state
         };
     }
 
@@ -84,8 +84,7 @@ class Payments extends Component {
                 <div className="amount-box">
                     <h2>Investment Amount (Ethers only): {investmentAmount || "Not set"}</h2><div className="progress-bar">
                         <div
-                            className={`progress ether-progress ${amount >= this.props.investmentAmount ? "green-progress" : ""
-                                }`}
+                            className={`progress ether-progress ${amount >= investmentAmount ? "green-progress" : ""}`}
                             style={{ width: progress.ether }}
                         ></div>
                         <div className="progress-text">{percentage}%</div>

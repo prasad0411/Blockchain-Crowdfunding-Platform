@@ -1,4 +1,8 @@
-/* rajnee home page */
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: lightcoral;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -18,7 +22,9 @@
 .amount-box {
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
     align-items: center;
+    background-color: white;
     border: 1px solid #ccc;
     padding: 20px;
     margin-top: 50px;
@@ -74,11 +80,7 @@
 }
 
 .ether-progress {
-    background-color: #3f51b5;
-}
-
-.target-completed {
-    background-color: green;
+    background-color: #2196f3;
 }
 
 .green-progress {
@@ -153,9 +155,4 @@ p {
     font-weight: bold;
     color: #aaa;
     cursor: pointer;
-}
-
-body {
-    font-family: 'Times New Roman', serif;
-    background-color: white;
 }
