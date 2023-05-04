@@ -5,12 +5,12 @@ const routes = require('next-routes')();
 routes
     .add('/homePage', 'HomePage')
     .add('/allProjects', 'AllProjects')
-    .add('/projectDetails', 'CommunityProjectDetails')
-    .add('/newProject', '/NewProject')
-    // .add('/community/:address/details', 'CommunityProjectDetails')
-    // .add('/private/:address/details', 'private_project_details')
+    .add('/communityProjectDetails', 'CommunityProjectDetails')
+    .add('/newPrivateProject', '/PrivateNewProject')
+    .add('/newCommunityProject', '/CommunityNewProject')
     .add('/payments', '/Payments')
     .add('/allProjects', 'AllProjects');
+// .add('/community/:address/details', 'CommunityProjectDetails')
+// .add('/private/:address/details', 'private_project_details')
 
-// .add('/', '/pages/index')
 module.exports = routes;

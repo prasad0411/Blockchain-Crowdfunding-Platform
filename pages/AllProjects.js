@@ -159,6 +159,9 @@ class AllProjects extends Component {
 
                         </div>
                     </div>
+                    {/* TO DO 
+                    SEPARATE ARE YET TO BE ADDED IN ROUTING  */}
+
                     <div className="row h-100">
                         <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
                             <h2 className="title text-center">
@@ -181,16 +184,23 @@ class AllProjects extends Component {
                             </div>
                         </div>
                     </div>
-                    <button className="floating-action-button"
-                        onClick={() => {
-                            Router.pushRoute('/newProject')
-                        }}
-                        title='Create a new project'>
-                        <span>Project ? </span>
-                        <i className="fa fa-plus"></i>
-                    </button>
-                    {this.state.modalOpen &&
-                        <ProjectModal setModalOpen={setModalOpen} />}
+                    <div className="container">
+                        <div className="buttons">
+                            <button className="create-private"
+                                onClick={() => {
+                                    Router.pushRoute('/newPrivateProject')
+                                }}>
+                                Create a new Private Project
+                            </button>
+                            <button className="create-community"
+                                onClick={() => {
+                                    Router.pushRoute('/newCommunityProject')
+                                }}>
+                                Create a new Community Project
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </>
         );

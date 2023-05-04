@@ -9,13 +9,11 @@ class CreateNewProject extends Component {
         this.state = {
             text: "",
             description: "",
-            investment: "",
-            sharePrice: ""
+            investment: ""
         };
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleInvestmentChange = this.handleInvestmentChange.bind(this);
-        this.handleSharePriceChange = this.handleSharePriceChange.bind(this);
     }
 
     handleTextChange(event) {
@@ -30,21 +28,17 @@ class CreateNewProject extends Component {
         this.setState({ investment: event.target.value });
     }
 
-    handleSharePriceChange(event) {
-        this.setState({ sharePrice: event.target.value });
-    }
-
     render() {
         return (
             <>
                 <Head>
-                    <title>New project</title>
+                    <title>New community project</title>
                     <link rel="stylesheet" href="/newProject.css" />
                 </Head>
 
                 <div className="App">
                     <header>
-                        <h1>Create a new Project</h1>
+                        <h1>Create a new Community Project</h1>
                     </header>
                     <div className="add-title">
                         <p>Title</p>
@@ -76,17 +70,6 @@ class CreateNewProject extends Component {
                                 placeholder="Investment amount"
                                 value={this.state.investment}
                                 onChange={this.handleInvestmentChange}
-                            ></textarea>
-                        </div>
-                    </div>
-                    <div className="add-sharePrice">
-                        <p>Cost of 1 Share Price</p>
-                        <div className="sharePrice-card">
-                            <textarea
-                                className="textarea-4"
-                                placeholder="Share price"
-                                value={this.state.sharePrice}
-                                onChange={this.handleSharePriceChange}
                             ></textarea>
                         </div>
                     </div>
