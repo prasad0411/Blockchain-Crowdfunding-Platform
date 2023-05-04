@@ -39,7 +39,7 @@ class CreateNewProject extends Component {
             <>
                 <Head>
                     <title>New private project</title>
-                    <link rel="stylesheet" href="/newProject.css" />
+                    <link rel="stylesheet" href="/newPrivateProject.css" />
                 </Head>
 
                 <div className="App">
