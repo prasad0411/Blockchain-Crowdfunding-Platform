@@ -2,7 +2,6 @@ import { Component, useState } from "react";
 import Head from "next/head";
 import { Router } from '../routes';
 
-
 class CreateNewProject extends Component {
 
     constructor(props) {
@@ -10,13 +9,13 @@ class CreateNewProject extends Component {
         this.state = {
             text: "",
             description: "",
-            maxEth: "",
-            minEth: ""
+            investment: "",
+            sharePrice: ""
         };
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-        this.handleMaxEth = this.handleMaxEth.bind(this);
-        this.handleMinEth = this.handleMinEth.bind(this);
+        this.handleInvestmentChange = this.handleInvestmentChange.bind(this);
+        this.handleSharePriceChange = this.handleSharePriceChange.bind(this);
     }
 
     handleTextChange(event) {
@@ -27,12 +26,12 @@ class CreateNewProject extends Component {
         this.setState({ description: event.target.value });
     }
 
-    handleMaxEth(event) {
-        this.setState({ maxEth: event.target.value });
+    handleInvestmentChange(event) {
+        this.setState({ investment: event.target.value });
     }
 
-    handleMinEth(event) {
-        this.setState({ minEth: event.target.value });
+    handleSharePriceChange(event) {
+        this.setState({ sharePrice: event.target.value });
     }
 
     render() {
@@ -69,25 +68,25 @@ class CreateNewProject extends Component {
                             ></textarea>
                         </div>
                     </div>
-                    <div className="add-MaxEth">
-                        <p>Maximum Eth to be collected</p>
-                        <div className="MaxEth-card">
+                    <div className="add-investment">
+                        <p>Total Investment Required</p>
+                        <div className="investment-card">
                             <textarea
                                 className="textarea-3"
-                                placeholder="Max Eth"
-                                value={this.state.maxEth}
-                                onChange={this.handleMaxEth}
+                                placeholder="Investment amount"
+                                value={this.state.investment}
+                                onChange={this.handleInvestmentChange}
                             ></textarea>
                         </div>
                     </div>
-                    <div className="add-MinEth">
-                        <p>Minimum Eth to be collected</p>
-                        <div className="MinEth-card">
+                    <div className="add-sharePrice">
+                        <p>Cost of 1 Share Price</p>
+                        <div className="sharePrice-card">
                             <textarea
                                 className="textarea-4"
-                                placeholder="Min Eth"
-                                value={this.state.minEth}
-                                onChange={this.handleMinEth}
+                                placeholder="Share price"
+                                value={this.state.sharePrice}
+                                onChange={this.handleSharePriceChange}
                             ></textarea>
                         </div>
                     </div>
