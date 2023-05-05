@@ -21,7 +21,7 @@ header {
 .add-title,
 .add-description,
 .add-investment,
-.add-sharePrice {
+.add-min-investment-for-voting {
     margin-bottom: 20px;
     width: 80%;
 }
@@ -29,7 +29,7 @@ header {
 .add-title p,
 .add-description p,
 .add-investment p,
-.add-sharePrice p {
+.add-min-investment-for-voting p {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -38,7 +38,7 @@ header {
 .text-card,
 .description-card,
 .investment-card,
-.sharePrice-card {
+.min-investment-for-voting-card {
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 4px;
