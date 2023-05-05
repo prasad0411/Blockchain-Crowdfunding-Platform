@@ -6,15 +6,11 @@ import React, { Component } from "react";
 import { Button, Card, Grid } from "semantic-ui-react";
 import web3 from "../ethereum/web3";
 
-
-
 class PrivateProjectDetails extends Component {
     static async getInitialProps(props) {
         console.log(props.query.address);
         const campaign = PrivateCampaign(props.query.address);
-        const summary = await campaign.methods.getSummary().call(
-
-        );
+        const summary = await campaign.methods.getSummary().call();
         console.log(summary);
 
         return {
@@ -28,7 +24,6 @@ class PrivateProjectDetails extends Component {
             totalShares: summary[6],
             title: summary[7],
             description: summary[8]
-
         };
     }
     renderCards() {
@@ -43,8 +38,8 @@ class PrivateProjectDetails extends Component {
             totalShares,
             title,
             description
-
         } = this.props;
+
         const items = [{
             header: manager,
             description:
@@ -95,8 +90,8 @@ class PrivateProjectDetails extends Component {
             totalShares,
             title,
             description
-
         } = this.props;
+
         return (
             <>
                 <Head>
@@ -108,18 +103,17 @@ class PrivateProjectDetails extends Component {
                     <h1 className="title">{title}</h1>
                     <div className="card">
                         <h2 className="description">Description</h2>
-                        <p>
-                            {description}</p>
+                        <p>{description}</p>
                     </div>
                     <Grid>
                         <Grid.Row>
                             <Grid.Column width={10}>
                                 {this.renderCards()}
-
                             </Grid.Column>
-                            {/* <Grid.Column width={6}><ContributeForm address={this.props.address}></ContributeForm></Grid.Column> */}
+                            {/* <Grid.Column width={6}><ContributeForm
+                            address={this.props.address}></ContributeForm>
+                            </Grid.Column> */}
                         </Grid.Row>
-
                     </Grid>
                     <Payments />
                 </div>

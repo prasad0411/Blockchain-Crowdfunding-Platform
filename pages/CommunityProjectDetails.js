@@ -1,14 +1,63 @@
 import Head from "next/head";
 import Payments from "./Payments";
+import 'semantic-ui-css/semantic.min.css';
+import CommunityCampaign from '../ethereum/communityCampaign';
 import React, { Component } from "react";
+import { Button, Card, Grid } from "semantic-ui-react";
 
 class CommunityProjectDetails extends Component {
   static async getInitialProps(props) {
+
     console.log(props.query.address);
+    const campaign = CommunityCampaign(props.query.address);
+    const summary = await campaign.methods.getSummary().call();
+    console.log(summary);
 
     return {
-      details: props.query.address,
+      address: props.query.address,
+      goal: summary[0],
+      minContribution: summary[1],
+      manager: summary[2],
+      contributions: summary[3],
+      totalRaised: summary[4],
+      title: summary[5],
+      description: summary[6]
     };
+  }
+  renderCards() {
+    const {
+      address,
+      goal,
+      minContribution,
+      manager,
+      contributions,
+      totalRaised,
+      title,
+      description
+    } = this.props;
+
+    const items = [{
+      header: manager,
+      description:
+        'The manager has created this campaign and can withdraw money.',
+      meta: 'Address of Manager',
+      style: { overflowWrap: 'break-word' }
+    },
+    {
+      header: minContribution,
+      description:
+        'The price for 1 share.',
+      meta: 'Share Price (wei)',
+    },
+    {
+      header: goal,
+      description:
+        'Total Funds required by the Project',
+      meta: 'Total shares',
+    },
+
+    ];
+    return <Card.Group items={items}></Card.Group>;
   }
 
   render() {
@@ -21,6 +70,18 @@ class CommunityProjectDetails extends Component {
     const isManager = true; // replace with appropriate code to check if user is manager
     const isLoading = false; // replace with appropriate code to check if data is being uploaded and processed
 
+    const {
+      address,
+      goal,
+      minContribution,
+      manager,
+      contributions,
+      totalRaised,
+      title,
+      description
+
+    } = this.props;
+
     return (
       <>
         <Head>
@@ -28,18 +89,27 @@ class CommunityProjectDetails extends Component {
           <link rel="stylesheet" href="/communityProjectDetails.css" />
         </Head>
         <div className="App">
-          <h1 className="title">This is Title</h1>
+          <h1 className="title">{title}</h1>
           <div className="card">
             <h2 className="description">Description</h2>
             <p>
-              Lorem ipsum dolor sit amet. Hic libero perferendis et rerum
-              dolorum sit provident voluptatem et eveniet debitis qui inventore
-              laboriosam ut culpa recusandae. Sed distinctio optio rem
-              voluptatibus provident vel nobis placeat!
+              {description}
             </p>
           </div>
 
+          <Grid>
+            <Grid.Row>
+              <Grid.Column width={10}>
+                {this.renderCards()}
+              </Grid.Column>
+              {/* <Grid.Column width={6}><ContributeForm
+                            address={this.props.address}></ContributeForm>
+                            </Grid.Column> */}
+            </Grid.Row>
+          </Grid>
+
           <Payments />
+
           {isInvestor && (
             <div className="card">
               <h2 className="description">Recipient Address</h2>

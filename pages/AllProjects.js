@@ -9,8 +9,10 @@ class AllProjects extends Component {
     static async getInitialProps() {
         const privateNew = [];
         const communityNew = [];
-        const communityCampaigns = await campaignFactory.methods.getDeployedCommunityCampaigns().call();
-        const privateCampaigns = await campaignFactory.methods.getDeployedPrivateCampaigns().call();
+        const communityCampaigns = await
+            campaignFactory.methods.getDeployedCommunityCampaigns().call();
+        const privateCampaigns = await
+            campaignFactory.methods.getDeployedPrivateCampaigns().call();
 
         console.log(communityCampaigns);
         console.log(privateCampaigns);
@@ -35,14 +37,8 @@ class AllProjects extends Component {
         return { privateNew, communityNew };
     }
 
-
-
-
-
     state = {
     }
-
-
     constructor(props) {
         super(props)
         this.state = {
@@ -52,7 +48,6 @@ class AllProjects extends Component {
             community: this.props.communityNew,
             showPrivate: true,
             showCommunity: true
-
         };
 
     }

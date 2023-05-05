@@ -6,8 +6,5 @@ export default (address) => {
     return new web3.eth.Contract(
         CommunityFactory.abi,
         address
-
-
     );
-
 };
