@@ -5,34 +5,55 @@ contract CampaignFactory {
     address[] public deployedCommunityCampaigns;
     address[] public deployedPrivateCampaigns;
 
-    function createCommunityCampaign(uint minimum, uint goal) public {
+    string[] public deployedCommunityCampaignTitles;
+    string[] public deployedPrivateCampaignTitles;
+
+    function createCommunityCampaign(
+        uint minimum,
+        uint goal,
+        string memory _title,
+        string memory _description
+    ) public {
         address newCampaign = address(
-            new CommunityCampaign(minimum, goal, msg.sender)
+            new CommunityCampaign(
+                minimum,
+                goal,
+                msg.sender,
+                _title,
+                _description
+            )
         );
         deployedCommunityCampaigns.push(newCampaign);
+        deployedCommunityCampaignTitles.push(_title);
     }
 
     function getDeployedCommunityCampaigns()
         public
         view
-        returns (address[] memory)
+        returns (address[] memory, string[] memory)
     {
-        return deployedCommunityCampaigns;
+        return (deployedCommunityCampaigns, deployedCommunityCampaignTitles);
     }
 
-    function createPrivateCampaign(uint minimum, uint goal) public {
+    function createPrivateCampaign(
+        uint minimum,
+        uint goal,
+        string memory _title,
+        string memory _description
+    ) public {
         address newCampaign = address(
-            new PrivateCampaign(minimum, goal, msg.sender)
+            new PrivateCampaign(minimum, goal, msg.sender, _title, _description)
         );
         deployedPrivateCampaigns.push(newCampaign);
+        deployedPrivateCampaignTitles.push(_title);
     }
 
     function getDeployedPrivateCampaigns()
         public
         view
-        returns (address[] memory)
+        returns (address[] memory, string[] memory)
     {
-        return deployedPrivateCampaigns;
+        return (deployedPrivateCampaigns, deployedPrivateCampaignTitles);
     }
 }
 
@@ -51,6 +72,8 @@ contract CommunityCampaign {
     address public manager;
     uint public minimumContribution;
     uint public goal;
+    string public title;
+    string public description;
 
     uint public approversCount;
     mapping(address => bool) public approvers;
@@ -60,10 +83,18 @@ contract CommunityCampaign {
         _;
     }
 
-    constructor(uint minimum, uint goalAmount, address sender) {
+    constructor(
+        uint minimum,
+        uint goalAmount,
+        address sender,
+        string memory _title,
+        string memory _description
+    ) {
         manager = sender;
         minimumContribution = minimum;
         goal = goalAmount;
+        title = _title;
+        description = _description;
     }
 
     function contribute() public payable {
@@ -73,12 +104,12 @@ contract CommunityCampaign {
     }
 
     function createRequest(
-        string memory description,
+        string memory _description,
         uint value,
         address recipient
     ) public restricted {
         Request storage newRequestInStorage = requests[currentIndex];
-        newRequestInStorage.description = description;
+        newRequestInStorage.description = _description;
         newRequestInStorage.value = value;
         newRequestInStorage.recipient = payable(recipient);
         newRequestInStorage.complete = false;
@@ -107,14 +138,16 @@ contract CommunityCampaign {
     function getSummary()
         public
         view
-        returns (uint, uint, uint, uint, address)
+        returns (uint, uint, uint, uint, address, string memory, string memory)
     {
         return (
             minimumContribution,
             address(this).balance,
             currentIndex,
             approversCount,
-            manager
+            manager,
+            title,
+            description
         );
     }
 
@@ -125,6 +158,8 @@ contract CommunityCampaign {
 
 contract PrivateCampaign {
     address payable public owner;
+    string public title;
+    string public description;
     uint public goal;
     uint public sharePrice;
     uint public totalShares;
@@ -138,11 +173,19 @@ contract PrivateCampaign {
     event FundTransfer(address backer, uint amount, bool isContribution);
     event WithdrawShares(address investor, uint sharesWithdrawn);
 
-    constructor(uint _minContribution, uint _goal, address sender) {
+    constructor(
+        uint _minContribution,
+        uint _goal,
+        address sender,
+        string memory _title,
+        string memory _description
+    ) {
         owner = payable(sender);
         goal = _goal;
         sharePrice = _minContribution;
         minContribution = _minContribution;
+        title = _title;
+        description = _description;
     }
 
     modifier onlyOwner() {
@@ -171,6 +214,9 @@ contract PrivateCampaign {
         totalShares -= numShares;
 
         uint amount = numShares * sharePrice;
+        contributions[msg.sender] -= amount;
+        totalRaised -= amount;
+
         payable(msg.sender).transfer(amount);
 
         emit WithdrawShares(msg.sender, numShares);
@@ -195,5 +241,33 @@ contract PrivateCampaign {
         payable(msg.sender).transfer(amount);
 
         emit FundTransfer(msg.sender, amount, false);
+    }
+
+    function getSummary()
+        public
+        view
+        returns (
+            uint,
+            uint,
+            address,
+            uint,
+            uint,
+            uint,
+            uint,
+            string memory,
+            string memory
+        )
+    {
+        return (
+            goal,
+            minContribution,
+            owner,
+            shares[msg.sender],
+            contributions[msg.sender],
+            totalRaised,
+            totalShares,
+            title,
+            description
+        );
     }
 }

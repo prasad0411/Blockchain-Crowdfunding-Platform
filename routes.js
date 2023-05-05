@@ -5,7 +5,8 @@ const routes = require('next-routes')();
 routes
     .add('/homePage', 'HomePage')
     .add('/allProjects', 'AllProjects')
-    .add('/communityProjectDetails', 'CommunityProjectDetails')
+    .add('/communityProjectDetails/:address', 'CommunityProjectDetails')
+    .add('/privateProjectDetails/:address', 'PrivateProjectDetails')
     .add('/newPrivateProject', '/PrivateNewProject')
     .add('/newCommunityProject', '/CommunityNewProject')
     .add('/payments', '/Payments')

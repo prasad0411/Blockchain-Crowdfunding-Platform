@@ -12,7 +12,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
 } else {
   // We are on the server *OR* the user is not running metamask
   const provider = new Web3.providers.HttpProvider(
-    "https://goerli.infura.io/v3/d881b5869ec3440f8573212195db4e55"
+    "https://sepolia.infura.io/v3/81d8dee83e614932b321c58016f092ea"
   );
   web3 = new Web3(provider);
 }

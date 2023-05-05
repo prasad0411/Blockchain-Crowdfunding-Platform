@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Head from "next/head";
 import { Router } from '../routes';
-import Web3 from "web3";
+
+
 
 class HomePage extends Component {
 
@@ -12,7 +13,7 @@ class HomePage extends Component {
                     <title>Home Page</title>
                     <link rel="stylesheet" type="text/css" href="/homepage.css" />
                 </Head>
-                <div className="connect-container">
+                {/* <div className="connect-container">
                     <button
                         className={`btn btn-sm btn-primary rounded-pill mr-2
                     connect-button`}
@@ -41,7 +42,7 @@ class HomePage extends Component {
                     >
                         Login<span className="arrow">&#8594;</span>
                     </button >
-                </div>
+                </div> */}
                 <div className="container">
                     <div className="page-title">
                         Crowdfunding Website using Blockchain

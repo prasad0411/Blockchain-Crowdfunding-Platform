@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import Head from "next/head";
 import { Router } from '../routes';
-import Web3 from "web3";
+import web3 from '../ethereum/web3';
 
 class HomePage extends Component {
+
 
     render() {
         return (
@@ -12,36 +13,19 @@ class HomePage extends Component {
                     <title>Home Page</title>
                     <link rel="stylesheet" type="text/css" href="/homepage.css" />
                 </Head>
-                <div className="connect-container">
+                {/* <div className="connect-container">
                     <button
                         className={`btn btn-sm btn-primary rounded-pill mr-2
                     connect-button`}
                         onClick={async () => {
-                            let web3;
-                            const address = [];
-                            if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-                                window.ethereum.request({ method: "eth_requestAccounts" }).then(res => {
-                                    // Return the address of the wallet
-                                    console.log(res)
-                                });
-                                web3 = new Web3(window.ethereum);
-                                const accounts = await web3.eth.getAccounts();
-                                console.log(accounts);
-                            } else {
-                                // We are on the server *OR* the user is not running metamask
-                                const provider = new Web3.providers.HttpProvider(
-                                    "https://goerli.infura.io/v3/d881b5869ec3440f8573212195db4e55"
-                                );
-                                web3 = new Web3(provider);
-                                const accounts = await web3.eth.getAccounts();
-                                console.log(accounts);
-                            }
+                           
 
-                        }}
+                        }
+                        }
                     >
                         Login<span className="arrow">&#8594;</span>
                     </button >
-                </div>
+                </div> */}
                 <div className="container">
                     <div className="page-title">
                         Crowdfunding Website using Blockchain

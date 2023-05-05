@@ -1,0 +1,334 @@
+{
+	"abi": [
+		{
+			"inputs": [],
+			"name": "contribute",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_minContribution",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_goal",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "_title",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_description",
+					"type": "string"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "backer",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isContribution",
+					"type": "bool"
+				}
+			],
+			"name": "FundTransfer",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "getRefund",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "recipient",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "totalAmountRaised",
+					"type": "uint256"
+				}
+			],
+			"name": "GoalReached",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "withdrawFunds",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "withdrawShares",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "investor",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "sharesWithdrawn",
+					"type": "uint256"
+				}
+			],
+			"name": "WithdrawShares",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "contributions",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "description",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "ended",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getSummary",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "goal",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "minContribution",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "owner",
+			"outputs": [
+				{
+					"internalType": "address payable",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "sharePrice",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "shares",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "title",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalRaised",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalShares",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

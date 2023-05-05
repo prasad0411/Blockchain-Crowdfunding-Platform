@@ -1,30 +1,128 @@
 import Head from "next/head";
 import Payments from "./Payments";
-import React from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import PrivateCampaign from '../ethereum/privateCampaign';
+import React, { Component } from "react";
+import { Button, Card, Grid } from "semantic-ui-react";
+import web3 from "../ethereum/web3";
 
-function ProjectDetails() {
-    return (
-        <>
-            <Head>
-                <title>Project Details</title>
-                <link rel="stylesheet" href="/privateProjectDetails.css" />
-            </Head>
-            <div className="App">
 
-                <h1 className="title">This is Title</h1>
-                <div className="card">
-                    <h2 className="description">Description</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet. Hic libero perferendis et rerum dolorum
-                        sit provident voluptatem et eveniet debitis qui inventore laboriosam
-                        ut culpa recusandae. Sed distinctio optio rem voluptatibus provident
-                        vel nobis placeat!
-                    </p>
+
+class PrivateProjectDetails extends Component {
+    static async getInitialProps(props) {
+        console.log(props.query.address);
+        const campaign = PrivateCampaign(props.query.address);
+        const summary = await campaign.methods.getSummary().call();
+        console.log(summary);
+
+        return {
+            address: props.query.address,
+            goal: summary[0],
+            minContribution: summary[1],
+            manager: summary[2],
+            shares: summary[3],
+            contributions: summary[4],
+            totalRaised: summary[5],
+            totalShares: summary[6],
+            title: summary[7],
+            description: summary[8]
+
+        };
+    }
+    renderCards() {
+        const {
+            address,
+            goal,
+            minContribution,
+            manager,
+            shares,
+            contributions,
+            totalRaised,
+            totalShares,
+            title,
+            description
+
+        } = this.props;
+        const items = [{
+            header: manager,
+            description:
+                'The manager has created this campaign and can withdraw money.',
+            meta: 'Address of Manager',
+            style: { overflowWrap: 'break-word' }
+        },
+        {
+            header: minContribution,
+            description:
+                'The price for 1 share.',
+            meta: 'Share Price (wei)',
+        },
+        {
+            header: shares,
+            description:
+                'Shares owned by you of this Project',
+            meta: 'Shares',
+        },
+
+        {
+            header: totalShares,
+            description:
+                'Total amount of shares claimed by the Investors',
+            meta: 'Total shares',
+        },
+        {
+            header: goal,
+            description:
+                'Total Funds required by the Project',
+            meta: 'Total shares',
+        },
+        ];
+        return <Card.Group items={items}></Card.Group>;
+    }
+
+
+    render() {
+        const {
+            address,
+            goal,
+            minContribution,
+            manager,
+            shares,
+            contributions,
+            totalRaised,
+            totalShares,
+            title,
+            description
+
+        } = this.props;
+        return (
+            <>
+                <Head>
+                    <title>Project Details</title>
+                    <link rel="stylesheet" href="/privateProjectDetails.css" />
+                </Head>
+                <div className="App">
+
+                    <h1 className="title">{title}</h1>
+                    <div className="card">
+                        <h2 className="description">Description</h2>
+                        <p>
+                            {description}</p>
+                    </div>
+                    <Grid>
+                        <Grid.Row>
+                            <Grid.Column width={10}>
+                                {this.renderCards()}
+
+                            </Grid.Column>
+                            {/* <Grid.Column width={6}><ContributeForm address={this.props.address}></ContributeForm></Grid.Column> */}
+                        </Grid.Row>
+
+                    </Grid>
+                    <Payments />
                 </div>
-                <Payments />
-            </div>
-        </>
-    );
+            </>
+        );
+    }
 }
 
-export default ProjectDetails;
+export default PrivateProjectDetails;
