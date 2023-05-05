@@ -9,11 +9,13 @@ class CreateNewProject extends Component {
         this.state = {
             text: "",
             description: "",
-            investment: ""
+            investment: "",
+            minInvestmentForVoting: ""
         };
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleInvestmentChange = this.handleInvestmentChange.bind(this);
+        this.handleMinInvestmentForVotingChange = this.handleMinInvestmentForVotingChange.bind(this);
     }
 
     handleTextChange(event) {
@@ -26,6 +28,10 @@ class CreateNewProject extends Component {
 
     handleInvestmentChange(event) {
         this.setState({ investment: event.target.value });
+    }
+
+    handleMinInvestmentForVotingChange(event) {
+        this.setState({ minInvestmentForVoting: event.target.value });
     }
 
     render() {
@@ -70,6 +76,17 @@ class CreateNewProject extends Component {
                                 placeholder="Investment amount"
                                 value={this.state.investment}
                                 onChange={this.handleInvestmentChange}
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div className="add-min-investment-for-voting">
+                        <p>Minimum Investment Required for Voting Rights</p>
+                        <div className="min-investment-for-voting-card">
+                            <textarea
+                                className="textarea-4"
+                                placeholder="Minimum investment amount required for voting rights"
+                                value={this.state.minInvestmentForVoting}
+                                onChange={this.handleMinInvestmentForVotingChange}
                             ></textarea>
                         </div>
                     </div>
