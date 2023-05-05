@@ -12,7 +12,8 @@ class AllProjects extends Component {
         const communityCampaigns = await campaignFactory.methods.getDeployedCommunityCampaigns().call();
         const privateCampaigns = await campaignFactory.methods.getDeployedPrivateCampaigns().call();
 
-
+        console.log(communityCampaigns);
+        console.log(privateCampaigns);
         for (let i = 0; i < communityCampaigns[0].length; i++) {
             let map = {
                 address: communityCampaigns[0][i],

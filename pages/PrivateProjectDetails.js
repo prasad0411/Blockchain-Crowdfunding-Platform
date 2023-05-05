@@ -12,7 +12,9 @@ class PrivateProjectDetails extends Component {
     static async getInitialProps(props) {
         console.log(props.query.address);
         const campaign = PrivateCampaign(props.query.address);
-        const summary = await campaign.methods.getSummary().call();
+        const summary = await campaign.methods.getSummary().call(
+
+        );
         console.log(summary);
 
         return {
@@ -75,6 +77,7 @@ class PrivateProjectDetails extends Component {
                 'Total Funds required by the Project',
             meta: 'Total shares',
         },
+
         ];
         return <Card.Group items={items}></Card.Group>;
     }
