@@ -142,9 +142,9 @@ contract CommunityCampaign {
     {
         return (
             minimumContribution,
-            address(this).balance,
-            currentIndex,
-            approversCount,
+            address(this).balance, //total raised
+            currentIndex, //no. of requests
+            approversCount, //total investors
             manager,
             title,
             description
