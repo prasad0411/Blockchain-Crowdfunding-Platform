@@ -165,7 +165,7 @@ class AllProjects extends Component {
                             </div> : null
                     }
 
-                    <div className="container">
+                    <div className="container-button">
                         <div className="buttons">
                             <button className="create-private"
                                 onClick={() => {

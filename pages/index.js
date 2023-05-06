@@ -86,7 +86,7 @@ class HomePage extends Component {
                     <div className="card-container2">
                         <div className="team-card">
                             <div className="card-title">
-                                <p></p>Team Members</div>
+                                <p></p>Team Members :</div>
                             <div className="card-text">
                                 Aditya Wakase 1032201574
                                 <br />
