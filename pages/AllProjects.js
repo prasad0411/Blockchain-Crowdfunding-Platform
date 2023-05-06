@@ -116,8 +116,6 @@ class AllProjects extends Component {
 
                         </div>
                     </div>
-                    {/* TO DO 
-                    SEPARATE ARE YET TO BE ADDED IN ROUTING  */}
                     {
                         this.state.showCommunity === true && this.state.community.length > 0 ?
                             <div className="row h-100">

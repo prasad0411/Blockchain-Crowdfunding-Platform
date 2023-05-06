@@ -42,7 +42,10 @@ body {
 }
 
 .eth-logo {
-    width: 200px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 200px;
 }
 
@@ -56,6 +59,8 @@ body {
 .card-text {
     font-size: 18px;
     line-height: 1.5;
+    text-align: justify;
+    
 }
 
 .eth-logo {

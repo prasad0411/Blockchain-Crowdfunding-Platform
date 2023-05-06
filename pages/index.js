@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import Head from "next/head";
 import { Router } from '../routes';
-import web3 from '../ethereum/web3';
 
 class HomePage extends Component {
-
 
     render() {
         return (
@@ -18,10 +16,27 @@ class HomePage extends Component {
                         className={`btn btn-sm btn-primary rounded-pill mr-2
                     connect-button`}
                         onClick={async () => {
-                           
+                            let web3;
+                            const address = [];
+                            if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+                                window.ethereum.request({ method: "eth_requestAccounts" }).then(res => {
+                                    // Return the address of the wallet
+                                    console.log(res)
+                                });
+                                web3 = new Web3(window.ethereum);
+                                const accounts = await web3.eth.getAccounts();
+                                console.log(accounts);
+                            } else {
+                                // We are on the server *OR* the user is not running metamask
+                                const provider = new Web3.providers.HttpProvider(
+                                    "https://goerli.infura.io/v3/d881b5869ec3440f8573212195db4e55"
+                                );
+                                web3 = new Web3(provider);
+                                const accounts = await web3.eth.getAccounts();
+                                console.log(accounts);
+                            }
 
-                        }
-                        }
+                        }}
                     >
                         Login<span className="arrow">&#8594;</span>
                     </button >
@@ -34,7 +49,7 @@ class HomePage extends Component {
                         <div className="abstract-card">
                             <div className="card-title">What have we achieved?</div>
                             <div className="card-text">
-                                <b>Assumptions made by us:</b>
+                                Assumptions made by us:
                                 <p></p>
                                 Through the use of an internet platform, crowdfunding has grown to
                                 be a well-liked method for creative people to raise money for their
@@ -42,8 +57,8 @@ class HomePage extends Component {
                                 crowdfunding model, including the use of third-party middlemen who
                                 cannot guarantee the investor's money and a lack of investor control
                                 over the use of their money.
-                                <p></p>The secure, dependable, and
-                                decentralised network of blockchain technology, on the other hand,
+                                <p></p>
+                                The secure, dependable, and decentralised network of blockchain technology, on the other hand,
                                 has grown to be quite popular across a wide range of businesses due
                                 to its efficiency when compared to more conventional approaches.
                                 Yet, because of their complicated and less secure networks, older
@@ -70,7 +85,8 @@ class HomePage extends Component {
                     </div>
                     <div className="card-container2">
                         <div className="team-card">
-                            <div className="card-title">Team Members</div>
+                            <div className="card-title">
+                                <p></p>Team Members</div>
                             <div className="card-text">
                                 Aditya Wakase 1032201574
                                 <br />
@@ -83,7 +99,7 @@ class HomePage extends Component {
                         </div>
                         <div className="eth-card">
                             <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/2048px-Ethereum-icon-purple.svg.png"
+                                src="https://www.iaccindia.com/wp-content/uploads/2018/10/Final-MIT-WPU-logo-page-001.jpg"
                                 alt="Ethereum Logo"
                                 className="eth-logo"
                             />
