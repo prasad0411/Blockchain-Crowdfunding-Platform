@@ -9,8 +9,10 @@ import web3 from "../ethereum/web3";
 class PrivateProjectDetails extends Component {
     static async getInitialProps(props) {
         console.log(props.query.address);
+        const accounts = await web3.eth.getAccounts();
         const campaign = PrivateCampaign(props.query.address);
         const summary = await campaign.methods.getSummary().call();
+        const shares = await campaign.methods.shares(accounts[0]).call();
         console.log(summary);
 
         return {
@@ -18,8 +20,8 @@ class PrivateProjectDetails extends Component {
             goal: summary[0],
             minContribution: summary[1],
             manager: summary[2],
-            shares: summary[3],
-            contributions: summary[4],
+            shares: shares,
+
             totalRaised: summary[5],
             totalShares: summary[6],
             title: summary[7],
@@ -33,7 +35,7 @@ class PrivateProjectDetails extends Component {
             minContribution,
             manager,
             shares,
-            contributions,
+
             totalRaised,
             totalShares,
             title,
@@ -85,7 +87,7 @@ class PrivateProjectDetails extends Component {
             minContribution,
             manager,
             shares,
-            contributions,
+
             totalRaised,
             totalShares,
             title,

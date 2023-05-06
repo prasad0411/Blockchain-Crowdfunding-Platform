@@ -4,34 +4,43 @@ import 'semantic-ui-css/semantic.min.css';
 import CommunityCampaign from '../ethereum/communityCampaign';
 import React, { Component } from "react";
 import { Button, Card, Grid } from "semantic-ui-react";
+import web3 from "../ethereum/web3";
 
 class CommunityProjectDetails extends Component {
   static async getInitialProps(props) {
 
     console.log(props.query.address);
+    const accounts = await web3.eth.getAccounts();
+
     const campaign = CommunityCampaign(props.query.address);
     const summary = await campaign.methods.getSummary().call();
+    const isInvestor = await campaign.methods.approvers(accounts[0]).call();
     console.log(summary);
+    console.log('isInvestor');
+    console.log(isInvestor);
 
     return {
       address: props.query.address,
-      goal: summary[0],
-      minContribution: summary[1],
-      manager: summary[2],
-      contributions: summary[3],
-      totalRaised: summary[4],
+      balance: summary[1],
+      minContribution: summary[0],
+      manager: summary[4],
+      requestNo: summary[2],
+      totalInvestors: summary[3],
       title: summary[5],
-      description: summary[6]
+      description: summary[6],
+      isInvestor: isInvestor,
+      self=accounts[0],
     };
   }
   renderCards() {
     const {
       address,
-      goal,
+      balance,
       minContribution,
       manager,
-      contributions,
-      totalRaised,
+      requestNo,
+      totalInvestors,
+      isInvestor,
       title,
       description
     } = this.props;
@@ -46,14 +55,14 @@ class CommunityProjectDetails extends Component {
     {
       header: minContribution,
       description:
-        'The price for 1 share.',
-      meta: 'Share Price (wei)',
+        'Minimun Contribution required to contribute this project and get Voting rights',
+      meta: 'Minimum Contribution (wei)',
     },
     {
-      header: goal,
+      header: balance,
       description:
-        'Total Funds required by the Project',
-      meta: 'Total shares',
+        'Total Balance left for the project',
+      meta: 'Total Balance',
     },
 
     ];
@@ -61,7 +70,7 @@ class CommunityProjectDetails extends Component {
   }
 
   render() {
-    const isInvestor = true; // replace with appropriate code to check if user is investor
+
     const hasAccepted = false; // replace with appropriate code to check if request has been accepted by user
     const investors = ["investor1", "investor2", "investor3"]; // replace with array of investors
     const acceptedInvestors = ["investor1", "investor3"]; // replace with array of investors who have accepted the request
@@ -72,13 +81,14 @@ class CommunityProjectDetails extends Component {
 
     const {
       address,
-      goal,
+      balance,
       minContribution,
       manager,
-      contributions,
-      totalRaised,
+      requestNo,
+      totalInvestors,
+      isInvestor,
       title,
-      description
+      description, self
 
     } = this.props;
 
@@ -136,7 +146,7 @@ class CommunityProjectDetails extends Component {
             </div>
           )}
 
-          {isManager && (
+          {manager === self && (
             <div className="card">
               <h2 className="description">Recipient Address</h2>
               <input type="text" placeholder="Enter recipient address" />
