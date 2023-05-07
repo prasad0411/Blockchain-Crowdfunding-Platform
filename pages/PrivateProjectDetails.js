@@ -5,6 +5,7 @@ import PrivateCampaign from '../ethereum/privateCampaign';
 import React, { Component } from "react";
 import { Button, Card, Grid } from "semantic-ui-react";
 import web3 from "../ethereum/web3";
+import ContributeFormPrivate from "./ContributeFormPrivate";
 
 class PrivateProjectDetails extends Component {
     static async getInitialProps(props) {
@@ -78,6 +79,12 @@ class PrivateProjectDetails extends Component {
         ];
         return <Card.Group items={items}></Card.Group>;
     }
+    invest = async () => {
+
+
+
+    }
+
 
 
     render() {
@@ -115,9 +122,12 @@ class PrivateProjectDetails extends Component {
                             {/* <Grid.Column width={6}><ContributeForm
                             address={this.props.address}></ContributeForm>
                             </Grid.Column> */}
+                            <Grid.Column width={6}><ContributeFormPrivate address={this.props.address} share={minContribution}></ContributeFormPrivate></Grid.Column>
+
                         </Grid.Row>
                     </Grid>
-                    <Payments />
+
+
                 </div>
             </>
         );

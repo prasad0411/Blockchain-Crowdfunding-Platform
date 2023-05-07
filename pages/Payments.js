@@ -24,7 +24,7 @@ class Payments extends Component {
         this.setState({ amount: event.target.value });
     };
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
         const minAmount = 1; // 0.1 ethers
         const { amount, investmentAmount } = this.state; // retrieve investmentAmount from state
@@ -99,7 +99,7 @@ class Payments extends Component {
                             onChange={this.handleAmountChange}
                             min="1" // set minimum value to 1
                             max={this.props.investmentAmount} // set maximum value to investmentAmount prop
-                            step="0.1" // set step to 0.1
+                            step="1" // set step to 0.1
                         />
                         <button type="submit">Submit</button>
                     </form>
