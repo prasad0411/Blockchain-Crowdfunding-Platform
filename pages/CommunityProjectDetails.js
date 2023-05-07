@@ -120,7 +120,7 @@ class CommunityProjectDetails extends Component {
           </Grid>
 
           <ContributeFormCommunity address={this.props.address} minContribution={minContribution}></ContributeFormCommunity>
-          {isInvestor === true ?
+          {isInvestor === true || self === manager ?
             <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
               <a>
                 <Button primary floated="right" style={{ marginBottom: 10 }}>
