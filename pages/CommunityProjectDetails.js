@@ -29,7 +29,7 @@ class CommunityProjectDetails extends Component {
       title: summary[5],
       description: summary[6],
       isInvestor: isInvestor,
-      self=accounts[0],
+      self: accounts[0],
     };
   }
   renderCards() {
