@@ -1,6 +1,9 @@
 import { Component, useState } from "react";
 import Head from "next/head";
 import { Router } from '../routes';
+import { Loader, Dimmer } from "semantic-ui-react";
+import web3 from "../ethereum/web3";
+import campaignFactory from "../ethereum/campaignFactory";
 
 class CreateNewProject extends Component {
 
@@ -10,13 +13,32 @@ class CreateNewProject extends Component {
             text: "",
             description: "",
             investment: "",
-            minInvestmentForVoting: ""
+            minInvestmentForVoting: "",
+            loading: false
         };
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleInvestmentChange = this.handleInvestmentChange.bind(this);
         this.handleMinInvestmentForVotingChange = this.handleMinInvestmentForVotingChange.bind(this);
     }
+    async onSubmit() {
+
+        this.setState({ loading: true, errorMessage: '' });
+        try {
+            const accounts = await web3.eth.getAccounts();
+            await campaignFactory.methods.createCommunityCampaign(this.state.minInvestmentForVoting, this.state.investment, this.state.text, this.state.description).send({
+                from: accounts[0]
+            });
+            Router.pushRoute('/allProjects');
+
+        } catch (err) {
+            this.setState({ errorMessage: err.message });
+        }
+        this.setState({ loading: false });
+
+
+
+    };
 
     handleTextChange(event) {
         this.setState({ text: event.target.value });
@@ -90,12 +112,16 @@ class CreateNewProject extends Component {
                             ></textarea>
                         </div>
                     </div>
-                    <button className="submit"
-                        onClick={() => {
-                            Router.pushRoute('/allProjects')
-                        }}>
-                        Submit
-                    </button>
+                    {this.state.loading === false ?
+                        <button className="submit"
+                            onClick={() => {
+                                this.onSubmit();
+
+                            }}>
+                            Submit
+                        </button> : <Dimmer active>
+                            <Loader>Loading</Loader>
+                        </Dimmer>}
                 </div>
             </>
         );
