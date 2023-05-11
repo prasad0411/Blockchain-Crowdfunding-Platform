@@ -13,7 +13,6 @@ import RequestIndex from "./RequestsShow";
 class CommunityProjectDetails extends Component {
   static async getInitialProps(props) {
 
-
     const accounts = await web3.eth.getAccounts();
     console.log(accounts);
 
@@ -74,20 +73,16 @@ class CommunityProjectDetails extends Component {
     return <Card.Group items={items}></Card.Group>;
   }
 
-
   render() {
-
-
-    const isLoading = false; // replace with appropriate code to check if data is being uploaded and processed
+    const isLoading = false;
+    // replace with appropriate code to check if data is being uploaded and processed
 
     const {
-
       balance,
       minContribution,
       manager,
       requestNo,
       totalInvestors,
-
       title,
       description, self,
       isInvestor
@@ -101,12 +96,9 @@ class CommunityProjectDetails extends Component {
           <link rel="stylesheet" href="/communityProjectDetails.css" />
         </Head>
         <div className="App">
-          <h1 className="title">{title}</h1>
+          <h1 className="title">Title:{' '}{title}</h1>
           <div className="card">
-            <h2 className="description">Description</h2>
-            <p>
-              {description}
-            </p>
+            <h2 className="description">Description: {' '}{description}</h2>
           </div>
 
           <Grid>
@@ -114,12 +106,10 @@ class CommunityProjectDetails extends Component {
               <Grid.Column width={10}>
                 {this.renderCards()}
               </Grid.Column>
-
             </Grid.Row>
-
           </Grid>
-
-          <ContributeFormCommunity address={this.props.address} minContribution={minContribution}></ContributeFormCommunity>
+          <ContributeFormCommunity address={this.props.address}
+            minContribution={minContribution}></ContributeFormCommunity>
           {isInvestor === true || self === manager ?
             <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
               <a>
@@ -128,9 +118,6 @@ class CommunityProjectDetails extends Component {
                 </Button>
               </a>
             </Link> : null}
-
-
-
         </div >
       </>
     );

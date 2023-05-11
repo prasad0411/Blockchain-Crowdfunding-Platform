@@ -73,12 +73,7 @@ class ContributeFormCommunity extends Component {
                 <Button loading={this.state.loading} primary>Contribute!</Button>
 
             </Form>
-
         );
-
-
     }
-
-
 }
 export default ContributeFormCommunity;

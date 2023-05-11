@@ -126,13 +126,13 @@ body {
 /* Create button styles */
 .create-private,
 .create-community {
-  padding: 7px;
+  padding: 8px;
   /* Adjust the desired padding */
   background-color: #2196f3;
   color: #fff;
   border: none;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 13.5px;
   cursor: pointer;
   margin-right: 5px;
 }
