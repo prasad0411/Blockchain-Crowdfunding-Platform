@@ -37,7 +37,6 @@ class CreateNewProject extends Component {
         this.setState({ loading: false });
 
 
-
     };
 
     handleTextChange(event) {
