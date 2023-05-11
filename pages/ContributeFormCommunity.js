@@ -3,7 +3,6 @@ import { Button, Form, Input, Message, Card } from "semantic-ui-react";
 import CommunityCampaign from "../ethereum/communityCampaign";
 import web3 from "../ethereum/web3";
 import 'semantic-ui-css/semantic.min.css';
-
 import { Router } from "../routes";
 
 class ContributeFormCommunity extends Component {

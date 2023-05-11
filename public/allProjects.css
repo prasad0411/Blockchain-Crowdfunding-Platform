@@ -86,16 +86,16 @@ body {
 .card .card-title {
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 600;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
+  /* Updated padding */
   text-align: center;
 }
 
 /* Card text styles */
 .card .card-text {
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
+  /* Updated padding */
   text-align: center;
 }
 

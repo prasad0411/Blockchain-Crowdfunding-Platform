@@ -11,10 +11,8 @@ import RequestIndex from "./RequestsShow";
 
 class CommunityProjectDetails extends Component {
   static async getInitialProps(props) {
-
     const accounts = await web3.eth.getAccounts();
     console.log(accounts);
-
     const campaign = CommunityCampaign(props.query.address);
     const summary = await campaign.methods.getSummary().call();
     const isInvestor = await campaign.methods.approvers(accounts[0]).call();
@@ -48,29 +46,32 @@ class CommunityProjectDetails extends Component {
       description
     } = this.props;
 
-    const items = [{
-      header: manager,
-      description:
-        'The manager has created this campaign and can withdraw money.',
-      meta: 'Address of Manager',
-      style: { overflowWrap: 'break-word' }
-    },
-    {
-      header: minContribution,
-      description:
-        'Minimun Contribution required to contribute this project and get Voting rights',
-      meta: 'Minimum Contribution (wei)',
-    },
-    {
-      header: balance,
-      description:
-        'Total Balance left for the project',
-      meta: 'Total Balance (Wei)',
-    },
-
+    const items = [
+      {
+        description: 'The manager has created this campaign and can withdraw money.',
+        meta: 'Address of Manager',
+        header: manager,
+        style: { overflowWrap: 'break-word' },
+        fluid: true,
+        className: 'custom-card',
+      },
+      {
+        description: 'Minimum Contribution required to contribute to this project and get voting rights.',
+        meta: 'Minimum Contribution (wei)',
+        header: minContribution,
+        fluid: true,
+        className: 'custom-card',
+      },
+      {
+        description: 'Total balance left for the project.',
+        meta: 'Total Balance (Wei)',
+        header: balance,
+        fluid: true,
+        className: 'custom-card',
+      },
     ];
-    return <Card.Group items={items}></Card.Group>;
 
+    return <Card.Group items={items}></Card.Group>;
   }
 
   render() {
@@ -110,14 +111,16 @@ class CommunityProjectDetails extends Component {
           </Grid>
           <ContributeFormCommunity address={this.props.address}
             minContribution={minContribution}></ContributeFormCommunity>
-          {isInvestor === true || self === manager ?
-            <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
-              <a>
-                <Button primary floated="right" style={{ marginBottom: 10 }}>
-                  View Requests
-                </Button>
-              </a>
-            </Link> : null}
+          {
+            isInvestor === true || self === manager ?
+              <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
+                <a>
+                  <Button primary floated="right" style={{ marginBottom: 10 }}>
+                    View Requests
+                  </Button>
+                </a>
+              </Link> : null
+          }
         </div >
       </>
     );

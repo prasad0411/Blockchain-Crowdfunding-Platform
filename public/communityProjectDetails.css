@@ -6,73 +6,82 @@
 .title {
   text-align: center;
   margin-bottom: 20px;
-  color: black;
-  font-size: 24px;
-}
-
-.card {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
 }
 
 .description {
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: black;
 }
 
 .grid-row {
   margin-bottom: 20px;
 }
 
-/* Styles for Card.Group items */
+.card {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  width: auto;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
 .card .header {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: black;
 }
 
 .card .description {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   color: black;
 }
 
 .card .meta {
-  font-size: 14px;
+  font-size: 18px;
   color: black;
 }
 
-.contribute-card {
-  display: inline-block;
-  width: fit-content;
-  /* Adjust the width as per your design */
-  margin-right: 10px;
-  /* Add spacing between cards */
-  margin-bottom: 10px;
-  /* Add spacing between rows */
-}
-
-.payments-card {
-  margin-top: 20px;
-  /* Add spacing between rows */
-}
-
-.contribute-card .content {
+.custom-card {
+  height: 110px;
+  border-radius: 20px;
+  background-color: #fff;
   padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contribute-card .form {
+.contribute-card {
+  height: auto;
+  width: 400px;
+  padding: 20px;
+  border-radius: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #ffffff;
+}
+
+.contribute-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contribute-card label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contribute-card .eth-message {
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.eth-message {
-  margin-bottom: 20px;
+.contribute-card .eth-message p {
+  border-radius: 20px;
+  margin: 0;
 }
 
-.contribute-button {
-  width: 100%;
+.contribute-card .contribute-button {
+  margin-top: 10px;
 }
