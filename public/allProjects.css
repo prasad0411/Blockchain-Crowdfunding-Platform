@@ -3,152 +3,141 @@ body {
   background-color: lightcoral;
 }
 
+
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  /* Align cards from left to right */
 }
 
-/* Styling for each individual card */
+/* Filter container styles */
+.filter {
+  text-align: center;
+}
+
+/* Button group styles */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Button styles */
+.btn {
+  border-radius: 20px;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  margin-right: 2.5px;
+  margin-left: 2.5px;
+  font-size: 18px;
+  /* Adjust the desired font size */
+}
+
+/* Button hover and active states */
+.btn-primary:hover,
+.btn-primary.active {
+  background-color: yellow;
+  border-color: black;
+}
+
+.btn-primary:focus {
+  background-color: peru;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-primary:active {
+  border-color: black;
+  color: white;
+}
+
+.title {
+  margin-left: 15px;
+}
+
+/* Card styles */
 .card {
-  flex: 1;
-  min-width: 20px;
-  min-height: 20px;
+  height: 160px;
+  width: 420px;
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  margin-bottom: 20px;
-  display: inline-block;
-  margin-right: 10px;
   margin: 10px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.card .card-text,
-.card .card-title {
-  text-align: center;
-  margin: 0;
-}
-
-/* Card hover effect */
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  background-color: yellow;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Card body styles */
-.card .card-body {
-  padding: 30px;
-  align-self: center;
-  height: auto;
+.card:active {
+  background-color: lightgreen;
 }
 
 /* Card title styles */
 .card .card-title {
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 600;
-  margin-bottom: 10px;
-  align-self: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
 }
 
 /* Card text styles */
 .card .card-text {
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
-  color: #6c757d;
-  margin-bottom: 20px;
-}
-
-/* Styling for the filter container */
-.filter {
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
 }
 
-/* Media query for 2 columns on larger screens */
+/* Media queries for responsive layout */
 @media (min-width: 768px) {
   .card {
-    width: calc(50% - 20px);
+    flex: 0 0 calc(50% - 20px);
   }
 }
 
-/* Media query for 3 columns on even larger screens */
 @media (min-width: 992px) {
   .card {
-    width: calc(33.33% - 20px);
+    flex: 0 0 calc(33.33% - 20px);
   }
 }
 
 
-/* Styling for the filter container */
-.filter {
-  text-align: center;
-}
-
-/* Styling for the button group */
-.btn-group {
-  display: flex;
-  justify-content: center;
-}
-
-/* Styling for all buttons */
-.btn {
-  border-radius: 15px;
-  padding: 8px 16px;
-  margin-bottom: 10px;
-}
-
-/* Styling for filter buttons */
-.filter button {
-  margin-right: 20px;
-  font-size: 20px;
-}
-
-/* Styling for the active filter button */
-.filter .active {
-  background-color: lightsteelblue;
-  border-color: black;
-}
-
-@media (min-width: 768px) {
-  .card {
-    width: calc(50% - 20px);
-  }
-}
-
-/* Media query for 3 columns on even larger screens */
-@media (min-width: 992px) {
-  .card {
-    width: calc(33.33% - 20px);
-  }
-}
-
-/* Styling for the filter container heading */
-.filter-container h3 {
-  font-size: 1.5em;
-  margin: 20px 0;
-}
-
-
-/* 2 buttons */
+/* Container button styles */
 .container-button {
   position: fixed;
   bottom: 10px;
   right: 10px;
+  transition: bottom 0.3s ease;
+  /* Add a smooth transition effect */
+
 }
 
-.buttons {
-  display: flex;
-}
-
+/* Create button styles */
 .create-private,
 .create-community {
-  padding: 0.5rem;
+  padding: 7px;
+  /* Adjust the desired padding */
   background-color: #2196f3;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 20px;
+  font-size: 13px;
   cursor: pointer;
-  margin-right: 0.5rem;
+  margin-right: 5px;
+}
+
+.create-private:hover,
+.create-community:hover {
+  background-color: #0058c1;
 }
