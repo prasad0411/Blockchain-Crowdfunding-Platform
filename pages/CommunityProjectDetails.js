@@ -4,7 +4,6 @@ import 'semantic-ui-css/semantic.min.css';
 import CommunityCampaign from '../ethereum/communityCampaign';
 import React, { Component } from "react";
 import { Link } from "../routes";
-
 import { Button, Card, Grid } from "semantic-ui-react";
 import web3 from "../ethereum/web3";
 import ContributeFormCommunity from "./ContributeFormCommunity";
@@ -71,6 +70,7 @@ class CommunityProjectDetails extends Component {
 
     ];
     return <Card.Group items={items}></Card.Group>;
+
   }
 
   render() {
@@ -102,11 +102,11 @@ class CommunityProjectDetails extends Component {
           </div>
 
           <Grid>
-            <Grid.Row>
-              <Grid.Column width={10}>
+            <Grid.Column>
+              <Grid.Row width={10}>
                 {this.renderCards()}
-              </Grid.Column>
-            </Grid.Row>
+              </Grid.Row>
+            </Grid.Column>
           </Grid>
           <ContributeFormCommunity address={this.props.address}
             minContribution={minContribution}></ContributeFormCommunity>

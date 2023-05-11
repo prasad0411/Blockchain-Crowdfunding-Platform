@@ -1,8 +1,8 @@
 body {
-  font-family: 'Times New Roman', serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: lightcoral;
+  transition: background-color 1s ease;
 }
-
 
 .container {
   display: flex;
@@ -59,7 +59,7 @@ body {
 /* Card styles */
 .card {
   height: 160px;
-  width: 420px;
+  width: 470px;
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
