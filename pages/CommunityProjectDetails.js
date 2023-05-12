@@ -4,7 +4,6 @@ import 'semantic-ui-css/semantic.min.css';
 import CommunityCampaign from '../ethereum/communityCampaign';
 import React, { Component } from "react";
 import { Link } from "../routes";
-
 import { Button, Card, Grid } from "semantic-ui-react";
 import web3 from "../ethereum/web3";
 import ContributeFormCommunity from "./ContributeFormCommunity";
@@ -12,11 +11,8 @@ import RequestIndex from "./RequestsShow";
 
 class CommunityProjectDetails extends Component {
   static async getInitialProps(props) {
-
-
     const accounts = await web3.eth.getAccounts();
     console.log(accounts);
-
     const campaign = CommunityCampaign(props.query.address);
     const summary = await campaign.methods.getSummary().call();
     const isInvestor = await campaign.methods.approvers(accounts[0]).call();
@@ -50,44 +46,44 @@ class CommunityProjectDetails extends Component {
       description
     } = this.props;
 
-    const items = [{
-      header: manager,
-      description:
-        'The manager has created this campaign and can withdraw money.',
-      meta: 'Address of Manager',
-      style: { overflowWrap: 'break-word' }
-    },
-    {
-      header: minContribution,
-      description:
-        'Minimun Contribution required to contribute this project and get Voting rights',
-      meta: 'Minimum Contribution (wei)',
-    },
-    {
-      header: balance,
-      description:
-        'Total Balance left for the project',
-      meta: 'Total Balance (Wei)',
-    },
-
+    const items = [
+      {
+        description: 'The manager has created this campaign and can withdraw money.',
+        meta: 'Address of Manager',
+        header: manager,
+        style: { overflowWrap: 'break-word' },
+        fluid: true,
+        className: 'custom-card',
+      },
+      {
+        description: 'Minimum Contribution required to contribute to this project and get voting rights.',
+        meta: 'Minimum Contribution (wei)',
+        header: minContribution,
+        fluid: true,
+        className: 'custom-card',
+      },
+      {
+        description: 'Total balance left for the project.',
+        meta: 'Total Balance (Wei)',
+        header: balance,
+        fluid: true,
+        className: 'custom-card',
+      },
     ];
+
     return <Card.Group items={items}></Card.Group>;
   }
 
-
   render() {
-
-
-    const isLoading = false; // replace with appropriate code to check if data is being uploaded and processed
+    const isLoading = false;
+    // replace with appropriate code to check if data is being uploaded and processed
 
     const {
-
       balance,
       minContribution,
       manager,
       requestNo,
       totalInvestors,
-
       title,
       description, self,
       isInvestor
@@ -101,36 +97,30 @@ class CommunityProjectDetails extends Component {
           <link rel="stylesheet" href="/communityProjectDetails.css" />
         </Head>
         <div className="App">
-          <h1 className="title">{title}</h1>
+          <h1 className="title">Title:{' '}{title}</h1>
           <div className="card">
-            <h2 className="description">Description</h2>
-            <p>
-              {description}
-            </p>
+            <h2 className="description">Description: {' '}{description}</h2>
           </div>
 
           <Grid>
-            <Grid.Row>
-              <Grid.Column width={10}>
+            <Grid.Column>
+              <Grid.Row width={10}>
                 {this.renderCards()}
-              </Grid.Column>
-
-            </Grid.Row>
-
+              </Grid.Row>
+            </Grid.Column>
           </Grid>
-
-          <ContributeFormCommunity address={this.props.address} minContribution={minContribution}></ContributeFormCommunity>
-          {isInvestor === true || self === manager ?
-            <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
-              <a>
-                <Button primary floated="right" style={{ marginBottom: 10 }}>
-                  View Requests
-                </Button>
-              </a>
-            </Link> : null}
-
-
-
+          <ContributeFormCommunity address={this.props.address}
+            minContribution={minContribution}></ContributeFormCommunity>
+          {
+            isInvestor === true || self === manager ?
+              <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
+                <a>
+                  <Button primary floated="right" style={{ marginBottom: 10 }}>
+                    View Requests
+                  </Button>
+                </a>
+              </Link> : null
+          }
         </div >
       </>
     );

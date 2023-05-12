@@ -23,7 +23,7 @@ class RequestIndex extends Component {
 
         const requestCount = await campaign.methods.getRequestsCount().call();
         let requests = Array(0);
-        console.log('Prinitin request count')
+        console.log('Printing request count')
         console.log(requestCount);
         console.log(approversCount);
 
@@ -50,16 +50,13 @@ class RequestIndex extends Component {
         });
     }
 
-
     render() {
         const { Header, Row, HeaderCell, Body } = Table;
-
         return (
 
             
             <Container >
                 <Header></Header>
-
                 <h3>Requests</h3>
                 {this.props.isManager === true ?
                     <Link route={`/communityProjectDetails/${this.props.address}/requests/new`}>
@@ -79,8 +76,6 @@ class RequestIndex extends Component {
                             <HeaderCell>Approval Count</HeaderCell>
                             <HeaderCell>Approve</HeaderCell>
                             <HeaderCell>Finalize</HeaderCell>
-
-
                         </Row>
                     </Header>
                     <Body>

@@ -22,7 +22,6 @@ class PrivateProjectDetails extends Component {
             minContribution: summary[1],
             manager: summary[2],
             shares: shares,
-
             totalRaised: summary[5],
             totalShares: summary[6],
             title: summary[7],
@@ -80,12 +79,7 @@ class PrivateProjectDetails extends Component {
         return <Card.Group items={items}></Card.Group>;
     }
     invest = async () => {
-
-
-
     }
-
-
 
     render() {
         const {
@@ -94,7 +88,6 @@ class PrivateProjectDetails extends Component {
             minContribution,
             manager,
             shares,
-
             totalRaised,
             totalShares,
             title,
@@ -108,26 +101,20 @@ class PrivateProjectDetails extends Component {
                     <link rel="stylesheet" href="/privateProjectDetails.css" />
                 </Head>
                 <div className="App">
-
-                    <h1 className="title">{title}</h1>
+                    <h1 className="title">Title:{' '}{title}</h1>
                     <div className="card">
-                        <h2 className="description">Description</h2>
-                        <p>{description}</p>
+                        <h2 className="description">Description: {' '}{description}</h2>
                     </div>
                     <Grid>
-                        <Grid.Row>
-                            <Grid.Column width={10}>
+                        <Grid.Column>
+                            <Grid.Row width={10}>
                                 {this.renderCards()}
-                            </Grid.Column>
-                            {/* <Grid.Column width={6}><ContributeForm
-                            address={this.props.address}></ContributeForm>
-                            </Grid.Column> */}
-                            <Grid.Column width={6}><ContributeFormPrivate address={this.props.address} share={minContribution}></ContributeFormPrivate></Grid.Column>
-
-                        </Grid.Row>
+                            </Grid.Row>
+                            <Grid.Column width={6}>
+                                <ContributeFormPrivate address={this.props.address} share={minContribution}>
+                                </ContributeFormPrivate></Grid.Column>
+                        </Grid.Column>
                     </Grid>
-
-
                 </div>
             </>
         );

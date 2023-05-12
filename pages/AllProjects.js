@@ -5,25 +5,28 @@ import campaignFactory from '../ethereum/campaignFactory'
 
 class AllProjects extends Component {
 
-
     static async getInitialProps() {
         const privateNew = [];
         const communityNew = [];
         const communityCampaigns = await
-            campaignFactory.methods.getDeployedCommunityCampaigns().call();
+            campaignFactory.methods.
+                getDeployedCommunityCampaigns().call();
         const privateCampaigns = await
-            campaignFactory.methods.getDeployedPrivateCampaigns().call();
+            campaignFactory.methods.
+                getDeployedPrivateCampaigns().call();
 
         console.log(communityCampaigns);
         console.log(privateCampaigns);
-        for (let i = 0; i < communityCampaigns[0].length; i++) {
+        for (let i = 0;
+            i < communityCampaigns[0].length; i++) {
             let map = {
                 address: communityCampaigns[0][i],
                 title: communityCampaigns[1][i]
             }
             communityNew.push(map);
         }
-        for (let i = 0; i < privateCampaigns[0].length; i++) {
+        for (let i = 0;
+            i < privateCampaigns[0].length; i++) {
             let map = {
                 address: privateCampaigns[0][i],
                 title: privateCampaigns[1][i]
@@ -117,7 +120,8 @@ class AllProjects extends Component {
                         </div>
                     </div>
                     {
-                        this.state.showCommunity === true && this.state.community.length > 0 ?
+                        this.state.showCommunity === true
+                            && this.state.community.length > 0 ?
                             <div className="row h-100">
                                 <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
                                     <h2 className="title text-center">
@@ -127,20 +131,24 @@ class AllProjects extends Component {
                                         {Array.isArray(this.state.community) &&
                                             this.state.community.map((project) => (
                                                 <div className="card mb-4 mr-4" onClick={() => {
-                                                    Router.pushRoute(`/communityProjectDetails/${project.address}`)
+                                                    Router.pushRoute
+                                                        (`/communityProjectDetails/${project.address}`)
                                                 }}>
                                                     <div className="card-body">
-                                                        <h5 className="card-title">{project.title}</h5>
-                                                        <p className="card-text">{project.address}</p>
-
+                                                        <h5 className="card-title">Title: {' '}
+                                                            {project.title}
+                                                        </h5>
+                                                        <p className="card-text">Address: {project.address}</p>
                                                     </div>
+
                                                 </div>
                                             ))}
                                     </div>
                                 </div>
                             </div> : null}
                     {
-                        this.state.showPrivate === true && this.state.private.length > 0 ?
+                        this.state.showPrivate === true
+                            && this.state.private.length > 0 ?
                             <div className="row h-100">
                                 <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
                                     <h2 className="title text-center">
@@ -151,13 +159,16 @@ class AllProjects extends Component {
                                         {Array.isArray(this.state.private) &&
                                             this.state.private.map((project) => (
                                                 <div className="card mb-4 mr-4" onClick={() => {
-                                                    Router.pushRoute(`/privateProjectDetails/${project.address}`)
+                                                    Router.pushRoute
+                                                        (`/privateProjectDetails/${project.address}`)
                                                 }}>
                                                     <div className="card-body">
-                                                        <h5 className="card-title">{project.title}</h5>
-                                                        <p className="card-text">{project.address}</p>
-
+                                                        <h5 className="card-title">Title: {' '}
+                                                            {project.title}
+                                                        </h5>
+                                                        <p className="card-text">Address: {project.address}</p>
                                                     </div>
+
                                                 </div>
                                             ))}
                                     </div>
@@ -171,13 +182,13 @@ class AllProjects extends Component {
                                 onClick={() => {
                                     Router.pushRoute('/newPrivateProject')
                                 }}>
-                                Create a new Private Project
+                                New Private Project
                             </button>
                             <button className="create-community"
                                 onClick={() => {
                                     Router.pushRoute('/newCommunityProject')
                                 }}>
-                                Create a new Community Project
+                                New Community Project
                             </button>
                         </div>
                     </div>
