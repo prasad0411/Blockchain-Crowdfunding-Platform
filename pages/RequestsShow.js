@@ -53,6 +53,8 @@ class RequestIndex extends Component {
     render() {
         const { Header, Row, HeaderCell, Body } = Table;
         return (
+
+            
             <Container >
                 <Header></Header>
                 <h3>Requests</h3>

@@ -1,134 +1,150 @@
 body {
-    font-family: 'Times New Roman', serif;
-    background-color: lightcoral;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 0;
+  font-family: "Roboto";
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0;
 }
 
 .page-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 40px;
-    font-size: 36px;
-    text-align: center;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 40px;
+
+  text-align: center;
+  font-family: "Roboto";
 }
 
 .card-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
 .abstract-card {
-    flex-basis: 100%;
-    margin-right: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+  flex-basis: 100%;
+  margin-right: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
 }
 
 .eth-card {
-    flex-basis: 45%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+  flex-basis: 45%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
 }
 
 .eth-logo {
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
-
 .card-title {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: "Roboto";
 }
 
 .card-text {
-    font-size: 18px;
-    line-height: 1.5;
-    text-align: justify;
-    
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 .eth-logo {
-    display: block;
-    margin: 0 auto;
-    max-height: 300px;
+  display: block;
+  margin: 0 auto;
+  max-height: 300px;
+}
+
+.eth-card {
+  flex-basis: 45%;
 }
 
 .card-container2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
 .team-card {
-    flex-basis: 45%;
-    margin-right: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+  flex-basis: 45%;
+  margin-right: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  
+}
+
+.card-textTeam {
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify;
+  
 }
 
 .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.next-button {
-    padding: 0.5rem;
-    background-color: #2196f3;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .next-button:hover {
-    background-color: #0058c1;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: #2c3e50;
+}
+
+.next-button {
+  padding: 0.5rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: "Roboto";
 }
 
 .next-button .arrow {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 .connect-button {
-    padding: 0.5rem;
-    background-color: #2196f3;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    position: absolute;
-    top: 1%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
+  padding: 0.5rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
 }
 
 .connect-container {
-    padding-bottom: 3px;
-    padding-top: 10px;
-    /* margin-top: 40px; */
+  padding-bottom: 3px;
+  padding-top: 10px;
+  /* margin-top: 40px; */
 }

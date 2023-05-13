@@ -87,14 +87,15 @@ class HomePage extends Component {
                         <div className="team-card">
                             <div className="card-title">
                                 <p></p>Team Members :</div>
-                            <div className="card-text">
+                            <div className="card-textTeam">
                                 Aditya Wakase 1032201574
+                                <br />
+                                Rajnee Shenkar 1032192072
                                 <br />
                                 Prasad Kanade 1032200653
                                 <br />
                                 Hrishikesh Pujari 1032192012
-                                <br />
-                                Rajnee Shenkar 1032192072
+                                
                             </div>
                         </div>
                         <div className="eth-card">
