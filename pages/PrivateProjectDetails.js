@@ -47,34 +47,42 @@ class PrivateProjectDetails extends Component {
             description:
                 'The manager has created this campaign and can withdraw money.',
             meta: 'Address of Manager',
-            style: { overflowWrap: 'break-word' }
+            style: { overflowWrap: 'break-word' },
+            fluid: true,
+            className: 'custom-card',
         },
         {
             header: minContribution,
             description:
                 'The price for 1 share.',
             meta: 'Share Price (wei)',
+            fluid: true,
+            className: 'custom-card',
         },
         {
             header: shares,
             description:
                 'Shares owned by you of this Project',
             meta: 'Shares',
+            fluid: true,
+            className: 'custom-card',
         },
-
         {
             header: totalShares,
             description:
                 'Total amount of shares claimed by the Investors',
             meta: 'Total shares',
+            fluid: true,
+            className: 'custom-card',
         },
         {
             header: goal,
             description:
                 'Total Funds required by the Project',
             meta: 'Total shares',
+            fluid: true,
+            className: 'custom-card',
         },
-
         ];
         return <Card.Group items={items}></Card.Group>;
     }
@@ -111,7 +119,10 @@ class PrivateProjectDetails extends Component {
                                 {this.renderCards()}
                             </Grid.Row>
                             <Grid.Column width={6}>
-                                <ContributeFormPrivate address={this.props.address} share={minContribution}>
+                                <ContributeFormPrivate
+                                    address={this.props.address}
+                                    share={minContribution}
+                                >
                                 </ContributeFormPrivate></Grid.Column>
                         </Grid.Column>
                     </Grid>

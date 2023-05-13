@@ -109,8 +109,10 @@ class CommunityProjectDetails extends Component {
               </Grid.Row>
             </Grid.Column>
           </Grid>
-          <ContributeFormCommunity address={this.props.address}
-            minContribution={minContribution}></ContributeFormCommunity>
+          <ContributeFormCommunity
+            address={this.props.address}
+            minContribution={minContribution}>
+          </ContributeFormCommunity>
           {
             isInvestor === true || self === manager ?
               <Link route={`/communityProjectDetails/${this.props.address}/requests`}>

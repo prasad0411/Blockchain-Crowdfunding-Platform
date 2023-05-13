@@ -51,8 +51,7 @@ class ContributeFormCommunity extends Component {
                 <Card.Content>
                     <Form
                         onSubmit={(e) => this.onSubmit(e)}
-                        error={!!this.state.errorMessage}
-                    >
+                        error={!!this.state.errorMessage}>
                         <Form.Field>
                             <label>Amount to Contribute</label>
                             <Input
