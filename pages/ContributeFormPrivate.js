@@ -71,7 +71,7 @@ class ContributeFormPrivate extends Component {
                             <p>{this.state.eth} ethers</p>
                         </Message>
 
-                        <Message
+                        <Message style={{ color: "black", fontSize: "15px" }}
                             error
                             header="Oops! Something went wrong"
                             content={this.state.errorMessage}

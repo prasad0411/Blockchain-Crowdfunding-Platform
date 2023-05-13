@@ -54,7 +54,9 @@ class ContributeFormCommunity extends Component {
                         onSubmit={(e) => this.onSubmit(e)}
                         error={!!this.state.errorMessage}>
                         <Form.Field>
-                            <label>Amount to Contribute</label>
+                            <label style=
+                                {{ color: "black", fontSize: "16px" }}>
+                                Amount to Contribute</label>
                             <Input
                                 value={this.state.value}
                                 onChange={this.handleChange}
@@ -63,11 +65,12 @@ class ContributeFormCommunity extends Component {
                             />
                         </Form.Field>
 
-                        <Message className="eth-message">
+                        <Message style={{ color: "black", fontSize: "15px" }}
+                            className="eth-message">
                             <p>{this.state.eth} ethers</p>
                         </Message>
 
-                        <Message
+                        <Message style={{ color: "black", fontSize: "15px" }}
                             error
                             header="Oops! Something went wrong"
                             content={this.state.errorMessage}
