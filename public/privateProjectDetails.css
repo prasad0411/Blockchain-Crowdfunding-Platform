@@ -25,6 +25,12 @@
   margin-bottom: 20px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* Updated styles */
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card .header {
@@ -50,6 +56,12 @@
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* Updated styles */
+  transition: box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contribute-card {

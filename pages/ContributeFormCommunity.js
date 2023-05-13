@@ -47,7 +47,8 @@ class ContributeFormCommunity extends Component {
 
     render() {
         return (
-            <Card className="contribute-card">
+            <Card className="contribute-card"
+                style={{ marginTop: "25px" }}>
                 <Card.Content>
                     <Form
                         onSubmit={(e) => this.onSubmit(e)}

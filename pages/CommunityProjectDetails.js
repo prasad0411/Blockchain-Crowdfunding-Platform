@@ -97,14 +97,20 @@ class CommunityProjectDetails extends Component {
           <link rel="stylesheet" href="/communityProjectDetails.css" />
         </Head>
         <div className="App">
-          <h1 className="title">Title:{' '}{title}</h1>
           <div className="card">
-            <h2 className="description">Description: {' '}{description}</h2>
+            <h1 className="title" style={{ fontSize: '26px' }}>
+              Title: {title}
+            </h1>
+          </div>
+          <div className="card">
+            <h2 className="description" style={{ fontSize: '22px' }}>
+              Description: {description}
+            </h2>
           </div>
 
           <Grid>
             <Grid.Column>
-              <Grid.Row width={10}>
+              <Grid.Row>
                 {this.renderCards()}
               </Grid.Row>
             </Grid.Column>

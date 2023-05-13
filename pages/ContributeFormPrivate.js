@@ -49,13 +49,14 @@ class ContributeFormPrivate extends Component {
 
     render() {
         return (
-            <Card className="contribute-card">
+            <Card className="contribute-card"
+                style={{ marginTop: "25px" }}>
                 <Card.Content>
                     <Form onSubmit={this.onSubmit}
                         error={!!this.state.errorMessage}>
                         <Form.Field>
                             <label style=
-                                {{ color: "black", fontSize: "18px" }}>
+                                {{ color: "black", fontSize: "16px" }}>
                                 Amount to Contribute</label>
                             <Input
                                 value={this.state.value}
@@ -65,7 +66,7 @@ class ContributeFormPrivate extends Component {
                             />
                         </Form.Field>
 
-                        <Message style={{ color: "black", fontSize: "16px" }}>
+                        <Message style={{ color: "black", fontSize: "15px" }}>
                             <p>{this.state.wei} Wei</p>
                             <p>{this.state.eth} ethers</p>
                         </Message>
