@@ -87,6 +87,8 @@ body {
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 600;
   padding: 0 10px;
+  padding-top: 0;
+  padding-bottom: 0;
   /* Updated padding */
   text-align: center;
 }
@@ -95,6 +97,8 @@ body {
 .card .card-text {
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   padding: 0 10px;
+  padding-top: 0;
+  padding-bottom: 0;
   /* Updated padding */
   text-align: center;
 }
