@@ -119,16 +119,28 @@ class CommunityProjectDetails extends Component {
             address={this.props.address}
             minContribution={minContribution}>
           </ContributeFormCommunity>
-          {
-            isInvestor === true || self === manager ?
-              <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
-                <a>
-                  <Button primary floated="right" style={{ marginBottom: 10 }}>
-                    View Requests
-                  </Button>
-                </a>
-              </Link> : null
-          }
+          {isInvestor === true || self === manager ? (
+            <Link route={`/communityProjectDetails/${this.props.address}/requests`}>
+              <a>
+                <Button
+                  primary
+                  floated="right"
+                  style={{
+                    marginBottom: '10px',
+                    backgroundColor: '#990000',
+                    color: '#fff',
+                    transition: 'background-color 0.3s ease-in-out',
+                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+                    fontFamily: 'Roboto',
+                  }}
+                  className="view-requests-button"
+                >
+                  View Requests
+                </Button>
+              </a>
+            </Link>
+          ) : null}
+
         </div >
       </>
     );

@@ -1,5 +1,22 @@
-/* Styles for CommunityProjectDetails component */
+body {
+  font-family: 'Times New Roman', serif;
+  background-image: linear-gradient(to bottom, #00CC66, transparent),
+    linear-gradient(to bottom right, #ADD8E6, #FF6666);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color 1s ease;
+  height: 100vh;
+}
+
+
 .App {
+  font-family: 'Times New Roman', serif;
+  background-image: linear-gradient(to bottom, #00CC66, transparent),
+    linear-gradient(to bottom right, #ADD8E6, #FF6666);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: background-color 1s ease;
   padding: 20px;
 }
 
@@ -96,4 +113,9 @@
 
 .contribute-card .contribute-button {
   margin-top: 10px;
+}
+
+.view-requests-button:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: #FF6666;
 }

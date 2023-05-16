@@ -75,11 +75,18 @@ class ContributeFormCommunity extends Component {
                             header="Oops! Something went wrong"
                             content={this.state.errorMessage}
                         />
-
                         <Button
-                            className="contribute-button"
                             loading={this.state.loading}
                             primary
+                            style={{
+                                backgroundColor: '#990000',
+                                color: '#fff',
+                                transition: 'background-color 0.3s ease-in-out',
+                                boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+                                fontFamily: 'Roboto',
+                            }}
+                            className="view-requests-button"
+
                         >
                             Contribute!
                         </Button>

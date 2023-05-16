@@ -53,37 +53,44 @@ class RequestIndex extends Component {
     render() {
         const { Header, Row, HeaderCell, Body } = Table;
         return (
-
-            
-            <Container >
-                <Header></Header>
-                <h3>Requests</h3>
-                {this.props.isManager === true ?
-                    <Link route={`/communityProjectDetails/${this.props.address}/requests/new`}>
-                        <a>
-                            <Button primary floated="right" style={{ marginBottom: 10 }}>
-                                Add Request
-                            </Button>
-                        </a>
-                    </Link> : null}
-                <Table>
-                    <Header>
-                        <Row>
-                            <HeaderCell>ID</HeaderCell>
-                            <HeaderCell>Description</HeaderCell>
-                            <HeaderCell>Amount</HeaderCell>
-                            <HeaderCell>Recipient</HeaderCell>
-                            <HeaderCell>Approval Count</HeaderCell>
-                            <HeaderCell>Approve</HeaderCell>
-                            <HeaderCell>Finalize</HeaderCell>
-                        </Row>
-                    </Header>
-                    <Body>
-                        {this.renderRows()}
-                    </Body>
-                </Table>
-                <div>Found {this.props.requestCount} requests</div>
-            </Container>
+            <div style={{
+                fontFamily: 'Times New Roman, serif',
+                backgroundImage: 'linear-gradient(to bottom, #00CC66, transparent), linear-gradient(to bottom right, #ADD8E6, #FF6666)',
+                backgroundRepeat: 'no-repeat',
+                transition: 'background-color 1s ease',
+                backgroundSize: 'cover',
+                minHeight: '100vh'
+            }}>
+                <Container >
+                    <Header></Header>
+                    <h3>Requests</h3>
+                    {this.props.isManager === true ?
+                        <Link route={`/communityProjectDetails/${this.props.address}/requests/new`}>
+                            <a>
+                                <Button primary floated="right" style={{ marginBottom: 10 }}>
+                                    Add Request
+                                </Button>
+                            </a>
+                        </Link> : null}
+                    <Table>
+                        <Header>
+                            <Row>
+                                <HeaderCell>ID</HeaderCell>
+                                <HeaderCell>Description</HeaderCell>
+                                <HeaderCell>Amount</HeaderCell>
+                                <HeaderCell>Recipient</HeaderCell>
+                                <HeaderCell>Approval Count</HeaderCell>
+                                <HeaderCell>Approve</HeaderCell>
+                                <HeaderCell>Finalize</HeaderCell>
+                            </Row>
+                        </Header>
+                        <Body>
+                            {this.renderRows()}
+                        </Body>
+                    </Table>
+                    <div>Found {this.props.requestCount} requests</div>
+                </Container>
+            </div>
         )
     }
 }
