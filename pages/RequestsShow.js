@@ -5,6 +5,7 @@ import web3 from "../ethereum/web3";
 import 'semantic-ui-css/semantic.min.css';
 import Campaign from "../ethereum/communityCampaign"
 import RequestRow from "./components/RequestRow";
+// import  "./RequestsShow.css"
 
 
 class RequestIndex extends Component {
