@@ -1,8 +1,14 @@
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: white;
+  font-family: 'Times New Roman', serif;
+  background-image: linear-gradient(to bottom, #00CC66, transparent),
+    linear-gradient(to bottom right, #ADD8E6, #FF6666);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   transition: background-color 1s ease;
+  height: 100vh;
 }
+
 
 .container {
   display: flex;
@@ -31,25 +37,24 @@ body {
   margin-right: 2.5px;
   margin-left: 2.5px;
   font-size: 18px;
-  /* Adjust the desired font size */
 }
 
 /* Button hover and active states */
+.btn-primary {
+  background-color: #990000;
+  border-color: black;
+  color: white;
+}
+
 .btn-primary:hover,
 .btn-primary.active {
-  background-color: yellow;
+  background-color: #FF6666;
   border-color: black;
 }
 
 .btn-primary:focus {
-  background-color: peru;
   outline: none;
   box-shadow: none;
-}
-
-.btn-primary:active {
-  border-color: black;
-  color: white;
 }
 
 .title {
@@ -73,20 +78,23 @@ body {
 }
 
 .card:hover {
-  background-color: yellow;
+  background-color: FF6666;
   transform: translateY(-2px);
+  background-color: #FF6666;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.card:active {
+/* .card:active {
   background-color: lightgreen;
-}
+} */
 
 /* Card title styles */
 .card .card-title {
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 600;
   padding: 0 10px;
+  padding-top: 0;
+  padding-bottom: 0;
   /* Updated padding */
   text-align: center;
 }
@@ -95,6 +103,8 @@ body {
 .card .card-text {
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   padding: 0 10px;
+  padding-top: 0;
+  padding-bottom: 0;
   /* Updated padding */
   text-align: center;
 }
@@ -128,7 +138,7 @@ body {
 .create-community {
   padding: 8px;
   /* Adjust the desired padding */
-  background-color: #2196f3;
+  background-color: #990000;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -139,5 +149,5 @@ body {
 
 .create-private:hover,
 .create-community:hover {
-  background-color: #0058c1;
+  background-color: #FF6666;
 }

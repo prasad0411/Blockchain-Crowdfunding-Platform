@@ -76,8 +76,21 @@ class ContributeFormPrivate extends Component {
                             header="Oops! Something went wrong"
                             content={this.state.errorMessage}
                         />
-
-                        <Button loading={this.state.loading} primary>
+                        <Button
+                            loading={this.state.loading}
+                            primary
+                            style={{
+                                backgroundColor: '#990000',
+                                color: '#fff',
+                                transition: 'background-color 0.3s ease-in-out',
+                                boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+                                fontFamily: 'Roboto',
+                            }}
+                            hoverStyle={{
+                                boxShadow: '0 5px 5px rgba(0, 0, 0, 0.1)',
+                                backgroundColor: '#FF6666',
+                            }}
+                        >
                             Contribute!
                         </Button>
                     </Form>

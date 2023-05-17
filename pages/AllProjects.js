@@ -87,112 +87,109 @@ class AllProjects extends Component {
                     <link rel="stylesheet" href="/allProjects.css" />
                 </Head>
                 <div className="container-fluid h-100">
-                    <div className="row profile d-flex justify-content-end align-items-center">
 
-                    </div>
-                    <div className="row filter d-flex justify-content-center align-items-center mb-4">
-                        <div className="col-md-12">
-                            <h1 className="text-center mb-4 font-weight-bold">
-                                Various types of projects</h1>
+                </div>
+                <div className="row filter d-flex justify-content-center align-items-center mb-4">
+                    <div className="col-md-12">
+                        <h1 className="text-center mb-4 font-weight-bold">
+                            Various types of projects</h1>
 
-                            <button
-                                className={`btn btn-sm btn-primary rounded-pill mr-2
+                        <button
+                            className={`btn btn-sm btn-primary rounded-pill mr-2
                                 ${this.state.filter === 'all' ? 'active' : ''}`}
-                                onClick={() => { this.handleFilterChange('all'); }}
-                            >
-                                All Projects
-                            </button>
-                            <button
-                                className={`btn btn-sm btn-primary rounded-pill mr-2
+                            onClick={() => { this.handleFilterChange('all'); }}
+                        >
+                            All Projects
+                        </button>
+                        <button
+                            className={`btn btn-sm btn-primary rounded-pill mr-2
                                 ${this.state.filter === 'private' ? 'active' : ''}`}
-                                onClick={() => { this.handleFilterChange('private'); }}
-                            >
-                                Private Projects
-                            </button>
-                            <button
-                                className={`btn btn-sm btn-primary rounded-pill
+                            onClick={() => { this.handleFilterChange('private'); }}
+                        >
+                            Private Projects
+                        </button>
+                        <button
+                            className={`btn btn-sm btn-primary rounded-pill
                                 ${this.state.filter === 'community' ? 'active' : ''}`}
-                                onClick={() => { this.handleFilterChange('community'); }}
-                            >
-                                Community Projects
-                            </button>
+                            onClick={() => { this.handleFilterChange('community'); }}
+                        >
+                            Community Projects
+                        </button>
 
-                        </div>
                     </div>
-                    {
-                        this.state.showCommunity === true
-                            && this.state.community.length > 0 ?
-                            <div className="row h-100">
-                                <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
-                                    <h2 className="title text-center">
+                </div>
+                {
+                    this.state.showCommunity === true
+                        && this.state.community.length > 0 ?
+                        <div className="row h-100">
+                            <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
+                                <h2 className="title text-center">
 
-                                        Community Projects</h2>
-                                    <div className="card-list d-flex flex-wrap">
-                                        {Array.isArray(this.state.community) &&
-                                            this.state.community.map((project) => (
-                                                <div className="card mb-4 mr-4" onClick={() => {
-                                                    Router.pushRoute
-                                                        (`/communityProjectDetails/${project.address}`)
-                                                }}>
-                                                    <div className="card-body">
-                                                        <h5 className="card-title">Title: {' '}
-                                                            {project.title}
-                                                        </h5>
-                                                        <p className="card-text">Address: {project.address}</p>
-                                                    </div>
-
+                                    Community Projects</h2>
+                                <div className="card-list d-flex flex-wrap">
+                                    {Array.isArray(this.state.community) &&
+                                        this.state.community.map((project) => (
+                                            <div className="card mb-4 mr-4" onClick={() => {
+                                                Router.pushRoute
+                                                    (`/communityProjectDetails/${project.address}`)
+                                            }}>
+                                                <div className="card-body">
+                                                    <h5 className="card-title">Title: {' '}
+                                                        {project.title}
+                                                    </h5>
+                                                    <p className="card-text">Address: {project.address}</p>
                                                 </div>
-                                            ))}
-                                    </div>
+
+                                            </div>
+                                        ))}
                                 </div>
-                            </div> : null}
-                    {
-                        this.state.showPrivate === true
-                            && this.state.private.length > 0 ?
-                            <div className="row h-100">
-                                <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
-                                    <h2 className="title text-center">
+                            </div>
+                        </div> : null}
+                {
+                    this.state.showPrivate === true
+                        && this.state.private.length > 0 ?
+                        <div className="row h-100">
+                            <div className="col-md-6 left-col d-flex flex-column justify-content-center align-items-center">
+                                <h2 className="title text-center">
 
-                                        Private Projects
-                                    </h2>
-                                    <div className="card-list d-flex flex-wrap">
-                                        {Array.isArray(this.state.private) &&
-                                            this.state.private.map((project) => (
-                                                <div className="card mb-4 mr-4" onClick={() => {
-                                                    Router.pushRoute
-                                                        (`/privateProjectDetails/${project.address}`)
-                                                }}>
-                                                    <div className="card-body">
-                                                        <h5 className="card-title">Title: {' '}
-                                                            {project.title}
-                                                        </h5>
-                                                        <p className="card-text">Address: {project.address}</p>
-                                                    </div>
-
+                                    Private Projects
+                                </h2>
+                                <div className="card-list d-flex flex-wrap">
+                                    {Array.isArray(this.state.private) &&
+                                        this.state.private.map((project) => (
+                                            <div className="card mb-4 mr-4" onClick={() => {
+                                                Router.pushRoute
+                                                    (`/privateProjectDetails/${project.address}`)
+                                            }}>
+                                                <div className="card-body">
+                                                    <h5 className="card-title">Title: {' '}
+                                                        {project.title}
+                                                    </h5>
+                                                    <p className="card-text">Address: {project.address}</p>
                                                 </div>
-                                            ))}
-                                    </div>
-                                </div>
-                            </div> : null
-                    }
 
-                    <div className="container-button">
-                        <div className="buttons">
-                            <button className="create-private"
-                                onClick={() => {
-                                    Router.pushRoute('/newPrivateProject')
-                                }}>
-                                New Private Project
-                            </button>
-                            <button className="create-community"
-                                onClick={() => {
-                                    Router.pushRoute('/newCommunityProject')
-                                }}>
-                                New Community Project
-                            </button>
-                        </div>
+                                            </div>
+                                        ))}
+                                </div>
+                            </div>
+                        </div> : null
+                }
+
+                <div className="container-button">
+                    <div className="buttons">
+                        <button className="create-private"
+                            onClick={() => {
+                                Router.pushRoute('/newPrivateProject')
+                            }}>
+                            New Private Project
+                        </button>
+                        <button className="create-community"
+                            onClick={() => {
+                                Router.pushRoute('/newCommunityProject')
+                            }}>
+                            New Community Project
+                        </button>
                     </div>
-
                 </div>
             </>
         );

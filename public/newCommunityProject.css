@@ -1,8 +1,14 @@
 body {
-  font-family: "Roboto";
-  background-color: white;
-  margin: 10px;
+  font-family: 'Times New Roman', serif;
+  background-image: linear-gradient(to bottom, #00CC66, transparent),
+    linear-gradient(to bottom right, #ADD8E6, #FF6666);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color 1s ease;
+  height: 100vh;
 }
+
 
 .App {
   display: flex;
@@ -33,18 +39,25 @@ header {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
-/* .text-card,
-.description-card,
-.investment-card,
-.min-investment-for-voting-card {
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-} */
-
 .textarea-1 {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  height: 50px;
+  margin: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
+  font-family: "Roboto";
+}
+
+.textarea-2 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 90%;
   height: 100px;
@@ -58,20 +71,7 @@ header {
   resize: none;
   font-family: "Roboto";
 }
-.textarea-2 {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  height: 200px;
-  margin: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px solid white;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-  resize: none;
-  font-family: "Roboto";
-}
+
 .textarea-3 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 90%;
@@ -86,6 +86,7 @@ header {
   resize: none;
   font-family: "Roboto";
 }
+
 .textarea-4 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 90%;
@@ -102,10 +103,8 @@ header {
 }
 
 .submit {
-  height: 40px;
-  width: 100px;
-  /* padding: 1rem; */
-  background-color: #2196f3;
+  padding: 0.5rem;
+  background-color: #990000;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -114,11 +113,10 @@ header {
   transition: background-color 0.3s ease-in-out;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   font-family: "Roboto";
-  margin-bottom: 20px;
 }
 
 .submit:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-  background-color: #2c3e50;
+  background-color: #FF6666;
 }
