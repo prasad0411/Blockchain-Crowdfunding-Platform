@@ -10,6 +10,7 @@ import ContributeFormCommunity from "./ContributeFormCommunity";
 import RequestIndex from "./RequestsShow";
 
 class CommunityProjectDetails extends Component {
+  //INTEGRATION WTIH WEB3
   static async getInitialProps(props) {
     const accounts = await web3.eth.getAccounts();
     console.log(accounts);
