@@ -3,6 +3,7 @@ import { Table, Button } from "semantic-ui-react";
 import web3 from "../../ethereum/web3";
 import 'semantic-ui-css/semantic.min.css';
 import Campaign from "../../ethereum/communityCampaign";
+import { Router } from "../../routes";
 
 
 class RequestRow extends Component {
