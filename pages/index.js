@@ -11,36 +11,6 @@ class HomePage extends Component {
                     <title>Home Page</title>
                     <link rel="stylesheet" type="text/css" href="/homepage.css" />
                 </Head>
-                {/* <div className="connect-container">
-                    <button
-                        className={`btn btn-sm btn-primary rounded-pill mr-2
-                    connect-button`}
-                        onClick={async () => {
-                            let web3;
-                            const address = [];
-                            if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-                                window.ethereum.request({ method: "eth_requestAccounts" }).then(res => {
-                                    // Return the address of the wallet
-                                    console.log(res)
-                                });
-                                web3 = new Web3(window.ethereum);
-                                const accounts = await web3.eth.getAccounts();
-                                console.log(accounts);
-                            } else {
-                                // We are on the server *OR* the user is not running metamask
-                                const provider = new Web3.providers.HttpProvider(
-                                    "https://goerli.infura.io/v3/d881b5869ec3440f8573212195db4e55"
-                                );
-                                web3 = new Web3(provider);
-                                const accounts = await web3.eth.getAccounts();
-                                console.log(accounts);
-                            }
-
-                        }}
-                    >
-                        Login<span className="arrow">&#8594;</span>
-                    </button >
-                </div> */}
                 <div className="container">
                     <div className="page-title">
                         Crowdfunding Website using Blockchain
@@ -49,37 +19,18 @@ class HomePage extends Component {
                         <div className="abstract-card">
                             <div className="card-title">What have we achieved?</div>
                             <div className="card-text">
-                                Assumptions made by us:
                                 <p></p>
-                                Through the use of an internet platform, crowdfunding has grown to
-                                be a well-liked method for creative people to raise money for their
-                                projects. However, there are a number of problems with the present
-                                crowdfunding model, including the use of third-party middlemen who
-                                cannot guarantee the investor's money and a lack of investor control
-                                over the use of their money.
+                                The size of crowdfunding sites has increased, leading to challenges in transparency, accountability, and investor control over funds. This lack of transparency and control hinders informed decision-making and limits the potential for positive societal impact.
+
                                 <p></p>
-                                The secure, dependable, and decentralised network of blockchain technology, on the other hand,
-                                has grown to be quite popular across a wide range of businesses due
-                                to its efficiency when compared to more conventional approaches.
-                                Yet, because of their complicated and less secure networks, older
-                                approaches have a lot of problems and difficulties. These issues can
-                                be solved by incorporating blockchain technology, which offers
-                                advantages like improved security, transparency, efficiency, and
-                                reduced fraud risk. <p></p>We suggest a new crowdfunding platform built on
-                                blockchain technology that offers a decentralised and safe method of
-                                crowdfunding to address these problems. Our platform's main goal is
-                                to give investors the ability to successfully contribute to any
-                                project by enabling them to create smart contracts that give them
-                                control over the invested funds. As a result, project developers are
-                                prevented from using funding in a manner with which investors
-                                disagreed.<p></p> Our work emphasises the advantages of integrating
-                                blockchain in different industries while highlighting the contrasts
-                                between conventional and blockchain-based crowdfunding platforms. We
-                                also go through the difficulties traditional industries face and how
-                                blockchain-based platforms might help solve these issues. Our goal
-                                is to raise awareness of the advantages of blockchain technology in
-                                various industries and to promote its adoption to increase security,
-                                efficiency, and transparency.
+                                Our project offers a comprehensive crowdfunding solution for private firms and non-profit organizations using Ethereum blockchain technology. By implementing a voting system, we empower investors to have a say in fund allocation, ensuring transparency and accountability. This solution encourages greater investment by offering investors proportional shares and potential benefits from future growth. Ultimately, our solution addresses the challenges of traditional crowdfunding, promoting innovation and positive societal impact.
+
+                                <p></p>
+                                <strong>Novelty -</strong>
+                                <p></p>Our platform introduces a crowdfunding technology that offers users the ability to engage in both types of campaigns seamlessly. Unlike previous platforms that restricted users to a single category, we empower individuals to participate in private campaigns or invest in noble causes based on their personal preferences.
+                                <p></p>Our platform also provides a voting system for community campaigns, requiring more than 51% investor agreement for fund usage by the campaign manager.
+                                <p></p>We have introduced a share holding system for private campaigns, allowing investors to receive a proportional share holding based on their investment.
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -95,7 +46,7 @@ class HomePage extends Component {
                                 Prasad Kanade 1032200653
                                 <br />
                                 Hrishikesh Pujari 1032192012
-                                
+
                             </div>
                         </div>
                         <div className="eth-card">

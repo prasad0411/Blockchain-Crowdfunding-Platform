@@ -49,7 +49,6 @@ class HomePage extends Component {
                         <div className="abstract-card">
                             <div className="card-title">What have we achieved?</div>
                             <div className="card-text">
-                                Assumptions made by us:
                                 <p></p>
                                 Through the use of an internet platform, crowdfunding has grown to
                                 be a well-liked method for creative people to raise money for their
