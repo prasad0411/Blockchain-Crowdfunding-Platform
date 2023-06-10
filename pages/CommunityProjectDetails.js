@@ -7,7 +7,6 @@ import { Link } from "../routes";
 import { Button, Card, Grid } from "semantic-ui-react";
 import web3 from "../ethereum/web3";
 import ContributeFormCommunity from "./ContributeFormCommunity";
-import RequestIndex from "./RequestsShow";
 
 class CommunityProjectDetails extends Component {
   //INTEGRATION WTIH WEB3
