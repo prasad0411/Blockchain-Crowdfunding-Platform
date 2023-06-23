@@ -6,7 +6,6 @@ import 'semantic-ui-css/semantic.min.css';
 import Campaign from "../ethereum/communityCampaign"
 import RequestRow from "./components/RequestRow";
 // import  "./RequestsShow.css"
-import { Router } from "../../routes";
 
 class RequestIndex extends Component {
     static async getInitialProps(props) {
