@@ -1,6 +1,6 @@
 const routes = require('next-routes')();
 
-// left- url
+// left- url 
 //right path
 routes
     .add('/homePage', 'HomePage')
