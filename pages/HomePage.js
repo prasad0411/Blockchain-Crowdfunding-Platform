@@ -21,7 +21,7 @@ class HomePage extends Component {
                             <div className="card-text">
                                 <p></p>
                                 Through the use of an internet platform, crowdfunding has grown to
-                                be a well-liked method for creative people to raise money for their
+                                be a well liked method for creative people to raise money for their
                                 projects. However, there are a number of problems with the present
                                 crowdfunding model, including the use of third-party middlemen who
                                 cannot guarantee the investor's money and a lack of investor control
