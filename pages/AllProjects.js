@@ -146,7 +146,7 @@ export default function AllProjects() {
                         </div>
                     </div>
                 </div>
-                <button className="floating-action-button"
+                <button className="floating-action-button" 
                     onClick={handleCreateNewProject}
                     title='Create a new project'>
                     <span>Project ? </span>
