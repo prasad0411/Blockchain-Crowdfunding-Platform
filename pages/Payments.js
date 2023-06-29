@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from 'next/router';
 
-const investmentAmount = 100;
+const investmentAmount = 100; 
 
 export default function Payments() {
     const [isModalOpen, setIsModalOpen] = useState(false);
