@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useRouter } from 'next/router';
 
 export default function CreateNewProject() {
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState(null); 
     const [text, setText] = useState("");
     const [description, setDescription] = useState("");
     const [maxEth, setMaxEth] = useState("");
