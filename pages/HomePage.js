@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 function HomePage() {
 
-    const router = useRouter();
+    const router = useRouter(); 
 
     const handleAllProjects = () => {
         router.push('/allProjects');
