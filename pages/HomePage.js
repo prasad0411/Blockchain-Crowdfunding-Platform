@@ -4,7 +4,7 @@ import { Router } from '../routes';
 
 class HomePage extends Component {
 
-    render() {
+    render() { 
         return (
             <>
                 <Head>
